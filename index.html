@@ -363,6 +363,21 @@ section#isi{padding-top:64px}
 .guide-link{margin:-8px 0 20px;font-size:14.5px;color:var(--ink2)}
 .guide-link a{color:var(--navy);font-weight:700}
 @media (max-width:860px){.rules{grid-template-columns:1fr}}
+
+.diag{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 24px}
+.diag-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.diag-card h3{margin:0 0 12px;font-size:17px}
+.kpi-list,.roots{margin:0;padding-left:18px;display:grid;gap:10px;font-size:14.5px;line-height:1.5}
+.diag-note{margin:14px 0 0;font-size:14px;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
+.gov-h{margin:36px 0 14px;font-size:20px}
+.gov{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gov > div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.gov > div.wide{grid-column:1/-1}
+.gov b{display:block;color:var(--gold2);font-size:13px;margin-bottom:4px}
+.gov p{margin:0;font-size:14.5px;line-height:1.5}
+@media (max-width:900px){.diag{grid-template-columns:1fr}.gov{grid-template-columns:1fr}}
+
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 </style>
 </head>
 <body>
@@ -454,7 +469,18 @@ section#isi{padding-top:64px}
 <section id="bukti" class="band-grid" data-page="bukti">
   <div class="wrap">
     <h2>Bukti dari data resmi</h2>
-    <p class="sub">Empat potret yang menunjukkan jarak antara data yang sudah dikumpulkan dan jawaban yang sampai ke publik. Tahun tanpa data terbit dibiarkan kosong, bukan dikarang.</p>
+    <p class="sub">Mengapa kerja koordinasi sulit diperiksa publik, dan lima potret data resmi yang menunjukkan jarak antara data yang sudah dikumpulkan dan jawaban yang sampai ke publik.</p>
+    <div class="diag">
+      <div class="diag-card">
+        <h3>Yang diukur Renstra saat ini</h3>
+        <ul class="kpi-list" id="kpiNow"></ul>
+        <p class="diag-note">Ukuran ini berguna bagi manajemen internal, tetapi tidak memberi warga sesuatu untuk diperiksa.</p>
+      </div>
+      <div class="diag-card">
+        <h3>Empat akar masalah</h3>
+        <ul class="roots" id="roots"></ul>
+      </div>
+    </div>
     <div class="charts">
       <figure aria-labelledby="c4">
         <h3 id="c4">Korban kejahatan yang melapor ke polisi, 2018–2024</h3>
@@ -554,6 +580,8 @@ section#isi{padding-top:64px}
         <div class="ipt"><span>Target indeks</span><b class="num">4,58</b></div>
       </li>
     </ol>
+    <h3 class="gov-h">Tata kelola, pembiayaan, dan risiko</h3>
+    <div class="gov" id="gov"></div>
   </div>
 </section>
 
@@ -573,7 +601,7 @@ section#isi{padding-top:64px}
           <li><b>Terinci menurut wilayah atau kelompok, dan ada ukuran mutu (galat baku atau status rekonsiliasi)?</b> Tidak → <span class="lname l4">Level 4, Terdokumentasi</span>; Ya → <span class="lname l5">Level 5, Teruji</span></li>
         </ol>
         <p style="margin:10px 0 0">Untuk dibandingkan dengan indeks lain, nilai dapat dikonversi ke skala 0–100: (rata-rata level − 1) ÷ 4 × 100.</p>
-        <p style="margin:10px 0 0"><b>Struktur dan asal usul indikator.</b> Strukturnya mengikuti pedoman indeks komposit OECD dan JRC: kerangka teoretis menentukan pilar, lalu indikator dipilih berdasarkan relevansi, keterukuran, dan hubungannya satu sama lain. Tiga pilar mengikuti tiga kementerian yang dikoordinasikan (Perpres 142/2024), dan pilar keempat adalah kepercayaan publik. Kesepuluh indikator dipilih secara purposif dengan lima kriteria: berada dalam bidang koordinasi Kemenko, terkait target atau kebijakan resmi, menyangkut lebih dari satu lembaga, dapat diperiksa dari sumber publik, dan memiliki padanan internasional, antara lain SDG 16.3.1, 16.3.2, 16.2.2, dan 16.a.1, World Prison Brief, statistik sanksi komunitas Dewan Eropa, Inggris, dan Skotlandia, kerangka indikator HAM OHCHR, serta Survei Kepercayaan OECD. Pertanyaan apakah pidana kerja sosial menggantikan penjara tidak dijadikan indikator karena membutuhkan analisis sebab-akibat; jawabannya menjadi keluaran siklus 2. Empat pemeriksaan level diadaptasi dari elemen Open Data Inventory (ODIN).</p>
+        <p style="margin:10px 0 0"><b>Struktur dan asal usul indikator.</b> Strukturnya mengikuti pedoman indeks komposit OECD dan JRC: kerangka teoretis menentukan pilar, lalu indikator dipilih berdasarkan relevansi, keterukuran, dan hubungannya satu sama lain. Tiga pilar mengikuti tiga kementerian yang dikoordinasikan (Perpres 142/2024) dan sama dengan tiga pilar strategis dalam Renstra Kemenko 2025–2029: sinkronisasi pembangunan hukum, HAM, serta imigrasi dan pemasyarakatan. Pilar keempat adalah kepercayaan publik. Kesepuluh indikator dipilih secara purposif dengan lima kriteria: berada dalam bidang koordinasi Kemenko, terkait target atau kebijakan resmi, menyangkut lebih dari satu lembaga, dapat diperiksa dari sumber publik, dan memiliki padanan internasional, antara lain SDG 16.3.1, 16.3.2, 16.2.2, dan 16.a.1, World Prison Brief, statistik sanksi komunitas Dewan Eropa, Inggris, dan Skotlandia, kerangka indikator HAM OHCHR, serta Survei Kepercayaan OECD. Pertanyaan apakah pidana kerja sosial menggantikan penjara tidak dijadikan indikator karena membutuhkan analisis sebab-akibat; jawabannya menjadi keluaran siklus 2. Empat pemeriksaan level diadaptasi dari elemen Open Data Inventory (ODIN).</p>
         <p style="margin:10px 0 0"><b>Bedanya dengan indeks yang sudah ada.</b> Indeks Keterbukaan Informasi Publik (Komisi Informasi Pusat) menilai pelaksanaan keterbukaan informasi oleh tiap badan publik, dan Indeks Pembangunan Statistik (hasil EPSS BPS) menilai kematangan proses statistik di tiap instansi. Indeks ini menilai hal di antara keduanya: apakah kebutuhan informasi yang melintasi beberapa lembaga benar-benar terpenuhi. Tangga lima levelnya meminjam logika tingkat kematangan EPSS; keandalannya diuji dengan dua penilai independen dan analisis sensitivitas bobot.</p>
       </div>
       <div class="box">
@@ -686,7 +714,7 @@ section#isi{padding-top:64px}
 <script>
 const SRC = {
   komnas2025:["RRI, 9 Juli 2026 (laporan tahunan Komnas HAM)","https://rri.co.id/nasional/2557194/komnas-ham-terima-ribuan-pengaduan-dugaan-pelanggaran-ham-sepanjang-2025"],
-  kemenham2025:["Antara, 5 Januari 2026 (Kementerian HAM)","https://megapolitan.antaranews.com/berita/479755/kementerian-ham-terima-1372-laporan-masyarakat-selama-2025"],
+  kemenham2025:["Antara, 5 Januari 2026 (Kementerian HAM)","https://www.antaranews.com/berita/5333818/sepanjang-2025-kementerian-ham-terima-1372-laporan-masyarakat"],
   ranham:["Perpres 53/2021 tentang RANHAM 2021–2025","https://jdih.setkab.go.id/PUUdoc/176463/Salinan_Perpres_Nomor_53_Tahun_2021.pdf"],
   panranham:["Permenkumham tentang Sekretariat PANRANHAM (BN 2022 No. 1035)","https://peraturan.go.id/files/bn1035-2022.pdf"],
   solok:["Satu Data Kota Solok, Persentase Capaian Aksi HAM","https://porsada.solokkota.go.id/data-sektoral/7520/export/pdf"],
@@ -710,8 +738,10 @@ const SRC = {
   iph23:["Bappenas, IPH 2023","https://mappifhui.org/wp-content/uploads/2025/04/Indeks-Pembangunan-Hukum-di-Indonesia-Tahun-2023-2.pdf"],
   iph24:["BPHN, Laporan Akhir IPH 2024","https://ijrs.or.id/wp-content/uploads/2026/03/Laporan-Akhir-IPH-2024.pdf"],
   iphPilar:["Kemenko Kumham Imipas, Mei 2026 (Lampung)","https://kumham-imipas.go.id/ruang-berita/berita-list/sesmenko-kumham-imipas-tekankan-pentingnya-sinergi-dalam-pembangunan-hukum-di-lampung"],
-  iphTarget:["Kanwil Kemenkum Aceh, 2025","https://aceh.kemenkum.go.id/berita-utama/deputi-kemenko-kumham-imipas-kunjungi-wagub-aceh-bahas-sinkronisasi-tugas-dan-fungsi"],
-  iphMeta:["Bappenas, Metadata IPH 2022","https://ditkumlasi.bappenas.go.id/download/file/METADATA_IPH_2022.pdf"],
+  iphTarget:["Renstra Kemenko 2025–2029 (Permenko Kumham Imipas No. 4/2025)","https://peraturan.bpk.go.id/Details/332351/permenko-kumham-imipas-no-4-tahun-2025"],
+  renstra:["Renstra Kemenko 2025–2029","https://peraturan.bpk.go.id/Details/332351/permenko-kumham-imipas-no-4-tahun-2025"],
+  capaian2025:["Kemenko Kumham Imipas, 20 Oktober 2025","https://kumham-imipas.go.id/ruang-berita/berita-list/capaian-kinerja-kemenko-kumham-imipas-dalam-satu-tahun-kabinet-merah-putih"],
+  iphMeta:["Bappenas (31 Mei 2024), Metadata IPH 2022","https://ditkumlasi.bappenas.go.id/download/file/METADATA_IPH_2022.pdf"],
   datagoid:["Satu Data Indonesia, dataset IPH","https://data.go.id/dataset/dataset/indeks-pembangunan-hukum"],
   sppt:["Kemenko Kumham Imipas, April 2025 (SPPT-TI)","https://kumham-imipas.go.id/ruang-berita/berita-list/kemenko-kumham-imipas-dorong-akselerasi-sppt-ti"],
   kuhp:["UU 1/2023 tentang KUHP, JDIH BPK","https://peraturan.bpk.go.id/Details/234935/uu-no-1"]
@@ -996,7 +1026,7 @@ function chPks(){
   document.getElementById("chPks").innerHTML = PKS.map(([n,v],i)=>`<div class="hb" role="img" aria-label="${n}: ${v} putusan">
     <div class="hb-top"><span>${n}</span><b class="num">${v}</b></div>
     <div class="track"><div class="fill" style="width:${v/max*100}%;background:${i===0?"var(--gold)":"var(--navy)"}"></div></div></div>`).join("");
-  document.getElementById("capPks").innerHTML = `Sumber: ${sl("ma")} (Januari hingga 26 Mei 2026). Jumlah PN efektif = 1/HHI = 3,77, dihitung penyusun; 15 PN yang tidak disebut namanya masing-masing tepat satu putusan (218 − 203 = 15).`;
+  document.getElementById("capPks").innerHTML = `Sumber: ${sl("ma")} (Januari hingga 26 Mei 2026). Jumlah PN efektif = 1/HHI = 3,77, dihitung penyusun; 15 PN yang tidak disebut namanya masing-masing tepat satu putusan (218 − 203 = 15). Direktori memuat putusan yang diunggah, sehingga konsentrasi ini juga dapat dipengaruhi kebiasaan mengunggah.`;
 }
 function chIph(){
   const lo=.5, hi=.8, h=v=>(v-lo)/(hi-lo)*100;
@@ -1014,6 +1044,32 @@ function chIph(){
 }
 
 /* ---------- Tabel data ---------- */
+
+function buildDiag(){
+  const K=[
+    ["Persentase rekomendasi kebijakan yang dimanfaatkan atau ditindaklanjuti kementerian dan lembaga: target <b>100%</b> setiap tahun, 2026–2029.", sl("renstra","matriks kinerja")],
+    ["Indeks Sinergitas Pembangunan Hukum, HAM, Imigrasi, dan Pemasyarakatan: <b>0,80</b> (2026) menuju <b>0,86</b> (2029). Cara pengukurannya tidak dijelaskan dalam dokumen Renstra.", sl("renstra","Tabel 2.1")],
+    ["Temuan IPH 2023 yang dikutip Renstra: belum ada mekanisme sistematis untuk menjaring kebutuhan informasi hukum masyarakat, dan interoperabilitas antarlembaga masih sangat lemah akibat ego sektoral.", sl("renstra","Tabel 1.7")]
+  ];
+  document.getElementById("kpiNow").innerHTML = K.map(([t,src])=>`<li>${t} ${src}</li>`).join("");
+  const R=[
+    ["Kelembagaan","Belum ada unit yang ditugasi menerbitkan statistik lintas lembaga; setiap instansi hanya bertanggung jawab atas datanya sendiri. Renstra mencatat pola koordinasi belum terbentuk dan belum memiliki landasan regulasi yang kuat.",sl("renstra","risiko 6")],
+    ["Insentif","Pekerjaan dianggap selesai saat rekomendasi terkirim, sedangkan menerbitkan angka yang belum baik dipandang berisiko.",sl("renstra","risiko 6")],
+    ["Teknis","Kejaksaan masih meminta sinkronisasi waktu nyata antara sistem pemasyarakatan, pengadilan, dan kejaksaan.",sl("overstay")],
+    ["Hukum","Data perkara memuat data pribadi yang dilindungi UU 27/2022, padahal statistik agregat tidak memuat identitas siapa pun.",""]
+  ];
+  document.getElementById("roots").innerHTML = R.map(([h,t,src])=>`<li><b>${h}.</b> ${t} ${src}</li>`).join("");
+  const G=[
+    ["Pengelola","Biro Manajemen Kinerja dan Kerja Sama, yang sudah menangani perencanaan dan kinerja Kemenko.",sl("renstra")],
+    ["Forum indikator","Desk tematik dalam Renstra, misalnya desk penegakan hukum dan perlakuan pemasyarakatan. Pertanyaan warga dihimpun lewat forum konsultasi publik dan kanal pengaduan.",sl("renstra","Strategi 1.2")],
+    ["Payung hukum","Dimasukkan ke Rancangan Permenko tentang Pola Koordinasi yang sudah tercantum dalam kerangka regulasi Renstra. Tidak perlu regulasi baru.",sl("renstra","subbab 3.3")],
+    ["Lembaga di luar lingkup koordinasi","MA, Kejaksaan, Polri, dan Komnas HAM dilibatkan lewat nota kesepahaman dan rapat koordinasi tingkat menteri, mekanisme yang sudah dijalankan Kemenko pada 2025.",sl("capaian2025")],
+    ["Pembiayaan","Keluaran Layanan Data dan Informasi, dengan pagu indikatif Rp158 juta pada 2026 hingga Rp1,88 miliar pada 2029.",sl("renstra","matriks pendanaan")],
+    ["Indikator keberhasilan","Nilai IPT, ketepatan jadwal rilis, jumlah revisi yang diumumkan, dan hasil eksperimen survei tentang kepercayaan.",""],
+    ["Risiko dan mitigasi","Data pribadi: hanya data agregat yang terbit. Ego sektoral: indikator disusun partisipatif, dan wilayah dibandingkan dengan plot corong, bukan peringkat. Mutu data: status rekonsiliasi dan catatan revisi yang terbuka. Permainan angka, yaitu mengejar level tanpa memperbaiki data: bukti diaudit dua penilai independen dan alasan setiap level dipublikasikan.",""]
+  ];
+  document.getElementById("gov").innerHTML = G.map(([h,t,src],i)=>`<div${i===G.length-1?' class="wide"':''}><b>${h}</b><p>${t} ${src}</p></div>`).join("");
+}
 function buildDataTable(){
   const rows=[];
   const grp=t=>rows.push(`<tr class="grp"><td colspan="4">${t}</td></tr>`);
@@ -1050,6 +1106,11 @@ function buildDataTable(){
   IPH.forEach(d=>row("Skor IPH",d.y,fmt2(d.v),sl(d.s),d.y===2024?"Rilis lain menyebut 0,69 ("+sl("iph069")+")":""));
   PILAR.forEach(([n,a,b])=>{ if(a!==null) row(`Pilar ${n.toLowerCase()}`,2023,fmt2(a),sl("iphPilar"),""); row(`Pilar ${n.toLowerCase()}`,2024,fmt2(b),sl("iphPilar"),""); });
   row("Target IPH","2029","0,73",sl("iphTarget"),"");
+  grp("Rencana Strategis Kemenko 2025–2029");
+  row("Persentase rekomendasi kebijakan yang dimanfaatkan K/L","2026–2029","100%",sl("renstra","matriks kinerja"),"Target sama setiap tahun");
+  row("Indeks Sinergitas Pembangunan Hukum, HAM, Imigrasi, dan Pemasyarakatan","2026 / 2029","0,80 / 0,86",sl("renstra","Tabel 2.1"),"Cara pengukuran tidak dijelaskan dalam dokumen Renstra");
+  row("Target Indeks Pembangunan Hukum","2026 / 2029","0,70 / 0,73",sl("renstra","Tabel 2.1"),"");
+  row("Pagu indikatif keluaran Layanan Data dan Informasi","2026 / 2029","Rp158 juta / Rp1.876 juta",sl("renstra","matriks pendanaan"),"");
   document.getElementById("dtable").innerHTML = `<thead><tr><th>Indikator</th><th>Periode</th><th>Nilai</th><th>Sumber dan lokasi</th></tr></thead><tbody>${rows.join("")}</tbody>`;
 }
 
@@ -1075,7 +1136,7 @@ gauge(document.getElementById("heroGauge"),"gHero");
 gauge(document.getElementById("simGauge"),"gSim");
 buildFacts(); buildLevelGuide(); buildQuestions(); buildSim();
 chLapor(); chRegSur(); chHuni(); chPks(); chIph();
-buildDataTable(); buildSources(); buildNav(); route(); window.addEventListener("hashchange", route);
+buildDiag(); buildDataTable(); buildSources(); buildNav(); route(); window.addEventListener("hashchange", route);
 requestAnimationFrame(()=>setGauge("gHero", ipt(baseLevels())));
 
 </script>
