@@ -347,6 +347,22 @@ section#isi{padding-top:64px}
 
 .theme-btn{display:inline-flex;align-items:center;gap:6px}
 @media (max-width:640px){.tb-label{display:none}.theme-btn{padding:7px 9px}.brand{font-size:14.5px}.notice{font-size:12px;padding:6px 0}}
+
+.guide{margin-top:48px;padding-top:36px;border-top:1px solid var(--line)}
+.guide-h{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;margin:0 0 10px}
+.guide h4{font-size:16px;margin:26px 0 10px}
+.gtable{min-width:760px}
+.gtable td{font-size:14px;line-height:1.5}
+.gtable td:first-child{white-space:nowrap}
+.gtable .lname{margin-top:0}
+.cl{margin:0;padding-left:18px}
+.cl li{margin:0 0 4px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.rules ol{margin:0;padding-left:20px;font-size:14.5px;color:var(--ink2)}
+.rules li{margin:0 0 8px}
+.guide-link{margin:-8px 0 20px;font-size:14.5px;color:var(--ink2)}
+.guide-link a{color:var(--navy);font-weight:700}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -413,6 +429,7 @@ section#isi{padding-top:64px}
     <h2>Sepuluh indikator dalam empat pilar, dan seberapa jauh data resmi memenuhinya</h2>
     <p class="sub">Strukturnya mengikuti pedoman indeks komposit: indeks, pilar, lalu indikator. Tiga pilar mengikuti tiga kementerian yang dikoordinasikan Kemenko menurut Perpres 142/2024, ditambah pilar kepercayaan publik yang lintas bidang. Setiap indikator adalah pernyataan kebutuhan informasi yang berasal dari pertanyaan warga, dinilai pada tangga lima level yang kumulatif. Skor pilar adalah rata-rata level indikatornya, dan indeks adalah rata-rata keempat skor pilar, sehingga setiap pilar berbobot sama.</p>
     <div class="levels" id="levels"></div>
+    <p class="guide-link">Setiap level punya syarat tertulis yang bisa diperiksa siapa saja. <a href="#pedoman">Baca pedoman penilaian</a></p>
     <div class="pillars" id="pillars"></div>
     <div class="qtable" id="qtable"></div>
   </div>
@@ -565,6 +582,71 @@ section#isi{padding-top:64px}
         <p><b>Runtun waktu terinterupsi</b> untuk menguji apakah KUHP mengubah pola pemidanaan (Bernal dkk., 2017).</p>
         <p><b>Kalender rilis dan catatan revisi</b> sesuai Prinsip Fundamental Statistik Resmi PBB (2014). Praktiknya sudah ada di BPS: angka yang diperbaiki diberi tanda <i>r</i>, dan estimasi survei disertai galat baku. <span id="bpsPractice"></span></p>
         <p><b>Eksperimen survei</b> untuk menguji apakah rapor menaikkan kepercayaan, bukan sekadar mengasumsikannya (Grimmelikhuijsen dkk., 2013; Buell dkk., 2021).</p>
+      </div>
+    </div>
+  
+    <div class="guide" id="pedoman">
+      <h3 class="guide-h">Pedoman penilaian level</h3>
+      <p class="sub">Pedoman ini dibuat agar dua penilai yang memeriksa indikator yang sama sampai pada level yang sama. Setiap syarat bisa dicek dengan bukti tertulis, dan setiap kasus yang meragukan punya aturan keputusannya.</p>
+
+      <h4>Kapan indikator masuk setiap level</h4>
+      <div class="tscroll"><table class="dtable gtable">
+        <thead><tr><th>Level</th><th>Masuk level ini bila</th><th>Contoh dari audit September 2026</th></tr></thead>
+        <tbody>
+          <tr><td><span class="lname l1">1, Belum tersedia</span></td><td>Pemeriksaan P1 tidak lolos: belum ada angka resmi yang dapat diakses publik.</td><td>Indikator 3: jumlah pidana kerja sosial yang tuntas dan gagal belum pernah dipublikasikan.</td></tr>
+          <tr><td><span class="lname l2">2, Terbatas</span></td><td>P1 lolos, P2 tidak: angka resmi ada, tetapi hanya sekali atau tidak terjadwal, atau baru mencakup sebagian komponen indikator.</td><td>Indikator 2: angka 218 putusan dibuka sekali oleh MA. Indikator 4: angka pengaduan tersebar di Komnas HAM dan Kementerian HAM tanpa angka nasional.</td></tr>
+          <tr><td><span class="lname l3">3, Berkala</span></td><td>P1 dan P2 lolos, P3 tidak: terbit berkala dan utuh, tetapi definisinya belum terbuka atau angkanya berbeda antarkanal tanpa penjelasan.</td><td>Indikator 1: IPH terbit setiap tahun, tetapi skor 2024 beredar sebagai 0,68 dan 0,69 tanpa catatan revisi.</td></tr>
+          <tr><td><span class="lname l4">4, Terdokumentasi</span></td><td>P1 sampai P3 lolos, P4 tidak: berkala, terdefinisi, dan konsisten, tetapi belum dirinci atau belum disertai ukuran mutu.</td><td>Belum ada pada audit awal. IPH akan masuk level ini bila perbedaan 0,68 dan 0,69 dijelaskan, selama analisis sensitivitasnya belum diterbitkan.</td></tr>
+          <tr><td><span class="lname l5">5, Teruji</span></td><td>P1 sampai P4 lolos.</td><td>Indikator 10: persentase korban yang melapor ke polisi terbit tahunan dari Susenas, terdefinisi, konsisten, dirinci per provinsi, dan disertai galat baku.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h4>Syarat setiap pemeriksaan</h4>
+      <div class="tscroll"><table class="dtable gtable">
+        <thead><tr><th>Pemeriksaan</th><th>Lolos bila seluruh syarat terpenuhi</th><th>Tidak lolos bila</th><th>Bukti yang dicatat</th></tr></thead>
+        <tbody>
+          <tr><td><b>P1</b><br>Ada angka resmi publik</td>
+            <td><ol class="cl" type="a"><li>Ada angka yang menjawab indikator, minimal untuk sebagian komponennya.</li><li>Angka berasal dari lembaga negara yang berwenang, melalui kanal resminya atau pernyataan resmi yang dikutip media dengan nama lembaga dan tanggal.</li><li>Dapat diakses publik tanpa login atau biaya pada tanggal audit.</li></ol></td>
+            <td>Angka hanya beredar antarinstansi, hanya perkiraan pihak nonpemerintah, atau hanya klaim tanpa angka seperti “meningkat”.</td>
+            <td>Tautan, tanggal terbit, tanggal akses, dan kutipan angka.</td></tr>
+          <tr><td><b>P2</b><br>Berkala dan memenuhi utuh</td>
+            <td><ol class="cl" type="a"><li>Terbit minimal dua kali berturut-turut dengan frekuensi tetap (bulanan, triwulanan, semesteran, atau tahunan) oleh lembaga penanggung jawabnya.</li><li>Data terbaru tidak lebih lama dari dua kali periode frekuensinya, dihitung dari tanggal audit. Contoh: data tahunan paling lambat tahun T−2.</li><li>Mencakup seluruh komponen yang disebut dalam pernyataan indikator, pada cakupan nasional.</li></ol></td>
+            <td>Hanya sekali terbit; rilis tematik tanpa jadwal; satu rilis memuat beberapa tahun tetapi tidak berulang; atau hanya sebagian komponen, lembaga, atau wilayah.</td>
+            <td>Minimal dua tautan terbitan beserta periode rujukannya.</td></tr>
+          <tr><td><b>P3</b><br>Terdokumentasi dan konsisten</td>
+            <td><ol class="cl" type="a"><li>Definisi operasional tertulis tersedia untuk publik.</li><li>Sumber data dan cara pengumpulannya disebut.</li><li>Periode rujukan disebut dengan jelas.</li><li>Untuk konsep dan periode yang sama, angka dengan presisi yang sama identik di semua kanal resmi yang ditemukan, atau perbedaannya dijelaskan dalam catatan revisi.</li></ol></td>
+            <td>Tidak ada definisi; dua kanal resmi memuat angka berbeda tanpa penjelasan; periode rujukan kabur; atau kategori berganti tanpa penjelasan.</td>
+            <td>Tautan metadata atau catatan teknis, dan daftar kanal yang dibandingkan.</td></tr>
+          <tr><td><b>P4</b><br>Terinci dan ada ukuran mutu</td>
+            <td><ol class="cl" type="a"><li>Dirinci minimal menurut satu dimensi yang relevan: wilayah (minimal provinsi) atau kelompok seperti jenis kelamin, umur, jenis perkara, atau lembaga.</li><li>Ada ukuran mutu sesuai jenis datanya. Survei: galat baku, RSE, atau selang kepercayaan. Data administratif: status kelengkapan pelaporan, status rekonsiliasi lintas lembaga, atau status sementara dan final beserta jadwal angka final. Indeks komposit: rincian komponen dan analisis sensitivitas.</li></ol></td>
+            <td>Hanya angka nasional, atau tidak ada informasi mutu sama sekali.</td>
+            <td>Tabel rincian, dan tabel atau catatan ukuran mutu.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="rules">
+        <div>
+          <h4>Aturan keputusan</h4>
+          <ol>
+            <li>Pemeriksaan dilakukan berurutan dan berhenti pada pemeriksaan pertama yang tidak lolos.</li>
+            <li>Hanya bukti yang terbit sampai tanggal audit yang dihitung, dan tanggal aksesnya dicatat.</li>
+            <li>Untuk indikator dengan beberapa komponen atau lembaga, P2 sampai P4 baru lolos bila seluruh komponen memenuhi. Bila baru sebagian, indikator berhenti di level 2.</li>
+            <li>Angka yang dikutip media dari pernyataan resmi cukup untuk P1. P2 sampai P4 memerlukan bukti dari kanal resmi lembaga.</li>
+            <li>Satu rilis yang memuat beberapa periode sekaligus dihitung sebagai satu terbitan.</li>
+            <li>Angka dianggap sama bila selisihnya hanya karena perbedaan presisi, misalnya 0,684 dan 0,68. Angka dengan presisi yang sama harus identik.</li>
+            <li>Data sementara lolos P1, tetapi baru lolos P3 bila statusnya dinyatakan dan jadwal angka finalnya disebut.</li>
+            <li>Bila ragu di antara dua level, pilih level yang lebih rendah dan catat alasannya.</li>
+          </ol>
+        </div>
+        <div>
+          <h4>Prosedur penilaian</h4>
+          <ol>
+            <li>Dua penilai independen mengisi formulir bukti untuk setiap indikator: tautan, tanggal terbit, tanggal akses, halaman atau tabel, dan tangkapan layar.</li>
+            <li>Kesepakatan kedua penilai dihitung dengan kappa berbobot (Cohen, 1968), dengan target minimal 0,61 atau kategori “substansial” (Landis &amp; Koch, 1977). Bila di bawah target, pedoman diperjelas lalu penilaian diulang.</li>
+            <li>Perbedaan penilaian dibahas bersama. Bila tetap berbeda, penilai ketiga dari BPS memutuskan.</li>
+            <li>Hasil, bukti, dan alasan setiap level diterbitkan bersama rapor. Lembaga terkait dan publik dapat mengajukan sanggahan dalam 30 hari.</li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
