@@ -57,7 +57,7 @@ nav.links{display:flex;gap:15px;font-size:13.5px;overflow-x:auto;scrollbar-width
 nav.links a{text-decoration:none;color:#C4D0E0;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
 nav.links a:hover{color:#fff;border-bottom-color:#E6BF62}
 .theme-btn{font:inherit;font-size:13px;background:rgba(255,255,255,.08);color:#F2F6FB;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 13px;cursor:pointer;white-space:nowrap}
-@media (max-width:900px){nav.links{display:none}}
+
 @media (max-width:1240px){.brand small{display:none}}
 
 /* Hero */
@@ -101,7 +101,7 @@ h2::before{content:"";display:block;width:48px;height:5px;border-radius:3px;back
 
 /* Question audit */
 .qtable{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.qrow{display:grid;grid-template-columns:140px 1fr 150px;gap:18px;padding:18px 22px;border-top:1px solid var(--line);align-items:start}
+.qrow{display:grid;grid-template-columns:160px 1fr 150px;gap:18px;padding:18px 22px;border-top:1px solid var(--line);align-items:start}
 .qrow:first-child{border-top:0}
 .qhead{background:var(--deep2);color:#DCE5F1;font-size:13px;font-weight:700;padding:12px 22px}
 .tag{font-size:12.5px;font-weight:800;color:var(--navy);background:color-mix(in srgb,var(--navy) 10%,transparent);border-radius:999px;padding:3px 10px;justify-self:start}
@@ -280,60 +280,145 @@ footer a{color:#E6BF62}
 @media (max-width:980px){.levels{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.levels{grid-template-columns:1fr}}
 @media (max-width:760px){.score .ladder{margin-left:0}}
+
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 18px}
+.pil{background:var(--deep2);color:#EAF0F8;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:3px;position:relative}
+.pil-no{font-size:12px;color:var(--gold2);font-weight:700}
+.pil b{font-size:16px;line-height:1.3}
+.pil-d{font-size:12.5px;color:#A8B8CD;line-height:1.4}
+.pil-s{font-size:26px;font-weight:800;color:var(--gold2);margin-top:4px}
+.qgroup{display:flex;justify-content:space-between;gap:12px;padding:10px 22px;background:color-mix(in srgb,var(--gold) 12%,var(--surface));font-weight:800;font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:980px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+
+/* Navigasi halaman */
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:#E6BF62;color:#0A1E3D;font-weight:800;padding:10px 14px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:none}
+.bar-actions{display:flex;gap:8px;align-items:center}
+nav.links a[aria-current="page"]{color:#fff;border-bottom-color:#E6BF62}
+.menu-btn{display:none;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:700;background:#E6BF62;color:#0A1E3D;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.menu-panel{position:absolute;left:0;right:0;top:100%;background:rgba(9,27,55,.98);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 24px 48px rgba(0,0,0,.35);max-height:calc(100vh - 80px);overflow:auto;padding:12px 0 18px}
+.menu-panel[hidden]{display:none}
+.menu-panel ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.menu-panel a{display:grid;grid-template-columns:28px 1fr;gap:2px 10px;padding:11px 12px;border-radius:10px;text-decoration:none;color:#F2F6FB}
+.menu-panel a:hover,.menu-panel a[aria-current="page"]{background:rgba(255,255,255,.08)}
+.menu-panel .mn{grid-row:span 2;font-weight:800;color:#E6BF62;font-variant-numeric:tabular-nums}
+.menu-panel b{font-size:15px}
+.menu-panel small{color:#A9B9CF;font-size:13px;line-height:1.4}
+@media (max-width:1100px){nav.links{display:none}.menu-btn{display:inline-flex}}
+@media (max-width:640px){.menu-panel ol{grid-template-columns:1fr}.theme-btn{padding:6px 10px}}
+.crumb{background:var(--surface);border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
+.crumb .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px}
+.crumb a{color:var(--ink2);text-decoration:none}
+.crumb a:hover{color:var(--navy);text-decoration:underline}
+.crumb b{color:var(--ink)}
+[data-page][hidden]{display:none!important}
+/* Daftar isi beranda */
+section#isi{padding-top:64px}
+.isi-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:start}
+.toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.toc a{display:grid;grid-template-columns:34px 1fr auto;gap:2px 12px;padding:16px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.toc .tn{grid-row:span 2;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;font-size:15px;padding-top:1px}
+.toc .tt{font-weight:800;font-size:16.5px}
+.toc .tk{grid-row:span 2;align-self:center;font-weight:800;color:var(--navy);font-size:15px;white-space:nowrap;text-align:right}
+.toc .td{color:var(--ink2);font-size:13.5px;line-height:1.45}
+.toc a:hover .tt{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+.about{background:var(--deep2);color:#E8EEF7;border-radius:18px;padding:22px 24px;position:sticky;top:90px}
+.about h3{margin:0 0 12px;font-size:17px}
+.about dl{margin:0 0 16px;display:grid;grid-template-columns:92px 1fr;gap:8px 12px;font-size:14px}
+.about dt{color:#E6BF62;font-weight:700}
+.about dd{margin:0;color:#D5DEEA}
+.about h4{margin:0 0 6px;font-size:14px;color:#E6BF62}
+.cite{margin:0 0 12px;font-size:13.5px;line-height:1.55;color:#D5DEEA;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;overflow-wrap:anywhere}
+.copy-btn{font:inherit;font-size:13.5px;font-weight:700;background:transparent;color:#F2F6FB;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 14px;cursor:pointer}
+@media (max-width:960px){.isi-grid{grid-template-columns:1fr}.about{position:static}}
+@media (max-width:640px){.toc{grid-template-columns:1fr}}
+/* Pager */
+.pager-wrap{background:var(--bg);border-top:1px solid var(--line)}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:28px;padding-bottom:56px}
+.pager a{display:block;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);text-decoration:none;color:inherit;box-shadow:var(--shadow)}
+.pager a:hover{border-color:var(--gold)}
+.pager small{display:block;color:var(--ink2);font-size:13px;margin-bottom:2px}
+.pager b{font-size:16.5px}
+.pager .next{text-align:right;grid-column:2}
+.linkish{font:inherit;background:none;border:0;padding:0;color:#E6BF62;text-decoration:underline;cursor:pointer}
+@media (max-width:640px){.pager{grid-template-columns:1fr}.pager .next{grid-column:1}}
+
+.theme-btn{display:inline-flex;align-items:center;gap:6px}
+@media (max-width:640px){.tb-label{display:none}.theme-btn{padding:7px 9px}.brand{font-size:14.5px}.notice{font-size:12px;padding:6px 0}}
 </style>
 </head>
 <body>
+<a class="skip" href="#konten">Lewati ke konten</a>
 <div class="notice"><div class="wrap"><p>Purwarupa gagasan untuk esai Lomba Karya Literasi Hari Bakti ke-2 Kemenko Kumham Imipas. Bukan situs resmi. Setiap angka disertai tautan sumber resmi yang bisa langsung diklik.</p></div></div>
 
 <header class="top">
   <div class="wrap bar">
     <div class="brand"><span class="mark" aria-hidden="true">R</span>Rapor Koordinasi<small>Kumham Imipas</small></div>
-    <nav class="links" aria-label="Bagian halaman">
-      <a href="#pertanyaan">Pertanyaan publik</a>
-      <a href="#simulasi">Simulasi aksi</a>
-      <a href="#bukti">Bukti data</a>
-      <a href="#alur">Kerja sosial</a>
-      <a href="#siklus">Rencana aksi</a>
-      <a href="#metode">Metode</a>
-      <a href="#data">Tabel data</a>
-    </nav>
-    <button class="theme-btn" id="themeBtn" type="button">Tema gelap</button>
+    <nav class="links" id="navLinks" aria-label="Menu utama"></nav>
+    <div class="bar-actions"><button class="theme-btn" id="themeBtn" type="button" aria-label="Ganti ke tema gelap"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="tb-label">Tema gelap</span></button><button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPanel"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button></div>
   </div>
+  <div class="menu-panel" id="menuPanel" hidden><div class="wrap"><ol id="menuList"></ol></div></div>
 </header>
+<div class="crumb" id="crumb" hidden><div class="wrap"><span id="crumbPath"></span><span class="pos" id="crumbPos"></span></div></div>
 
-<main>
-<section class="hero photo" id="top" aria-label="Pembuka">
+<main id="konten" tabindex="-1">
+<section class="hero photo" id="top" aria-label="Pembuka" data-page="beranda">
   <div class="wrap hero-grid">
     <div>
       <div class="rule" aria-hidden="true"></div>
       <h1>Kerja koordinasi memang tak terlihat. Hasilnya bisa diukur.</h1>
       <p class="lead">Kementerian koordinator tidak memberi layanan langsung, sehingga publik sulit menilai kerjanya. Purwarupa ini mengusulkan satu ukuran sederhana: berapa banyak pertanyaan publik lintas lembaga yang sudah bisa dijawab dengan data terbuka.</p>
       <div class="cta">
-        <a href="#pertanyaan">Lihat audit pertanyaan</a>
+        <a href="#indeks">Lihat audit indikator</a>
         <a href="#simulasi" class="ghost">Coba simulasi aksi</a>
       </div>
     </div>
     <div class="hero-card">
       <div class="g" id="heroGauge"></div>
       <strong>Indeks Pertanyaan Terjawab</strong>
-      <p>Rata-rata level 8 pertanyaan publik pada skala 1–5, audit September 2026</p>
+      <p>Rata-rata skor 4 pilar dari 10 indikator, skala 1–5, audit September 2026</p>
       <a href="#metode">Lihat cara menghitungnya</a>
     </div>
   </div>
   <p class="photo-credit">Gedung di Jl. H.R. Rasuna Said Kav. X6 No. 8, Kuningan, Jakarta Selatan. Foto: <a href="https://kumham-imipas.go.id/" target="_blank" rel="noopener" style="color:inherit">kumham-imipas.go.id</a></p>
 </section>
-<div class="wrap statband"><ul class="facts" id="facts"></ul></div>
+<div class="wrap statband" data-page="beranda"><ul class="facts" id="facts"></ul></div>
 
-<section id="pertanyaan" class="band-light">
+<section id="isi" class="band-light" data-page="beranda" aria-labelledby="isiTitle">
+  <div class="wrap isi-grid">
+    <div>
+      <h2 id="isiTitle">Isi situs ini</h2>
+      <p class="sub">Situs ini disusun seperti laporan: mulai dari ukuran yang diusulkan, lalu simulasi, bukti data, rencana aksi, hingga metode dan sumbernya. Setiap bagian bisa dibuka langsung dari menu di atas.</p>
+      <ol class="toc" id="toc"></ol>
+    </div>
+    <aside class="about" aria-labelledby="aboutTitle">
+      <h3 id="aboutTitle">Tentang purwarupa ini</h3>
+      <dl>
+        <dt>Penyusun</dt><dd>Muhammad Rafi Ramadhan, Badan Pusat Statistik</dd>
+        <dt>Tujuan</dt><dd>Pendukung esai Lomba Karya Literasi Hari Bakti ke-2 Kemenko Kumham Imipas, subtema “Mengawal”</dd>
+        <dt>Batas data</dt><dd>30 September 2026</dd>
+        <dt>Status</dt><dd>Purwarupa gagasan pribadi, bukan situs resmi lembaga mana pun</dd>
+      </dl>
+      <h4>Cara mengutip</h4>
+      <p class="cite" id="citeText">Ramadhan, M. R. (2026). <i>Rapor Koordinasi Kumham Imipas: Purwarupa Indeks Pertanyaan Terjawab</i> [Situs web]. https://mrafiraamadhan.github.io/rapor-koordinasi/</p>
+      <button class="copy-btn" id="copyCite" type="button">Salin kutipan</button>
+    </aside>
+  </div>
+</section>
+
+<section id="pertanyaan" class="band-light" data-page="indeks">
   <div class="wrap">
-    <h2>Delapan pertanyaan publik, dan seberapa jauh data resmi bisa menjawabnya</h2>
-    <p class="sub">Setiap pertanyaan dinilai pada tangga lima level. Levelnya kumulatif: sebuah pertanyaan baru naik satu level bila lolos satu pemeriksaan ya/tidak, dan berhenti di pemeriksaan pertama yang gagal. Pertanyaan bidang HAM dan imigrasi sengaja belum dinilai; daftarnya disusun bersama pemangku kepentingan pada siklus pertama.</p>
+    <h2>Sepuluh indikator dalam empat pilar, dan seberapa jauh data resmi memenuhinya</h2>
+    <p class="sub">Strukturnya mengikuti pedoman indeks komposit: indeks, pilar, lalu indikator. Tiga pilar mengikuti tiga kementerian yang dikoordinasikan Kemenko menurut Perpres 142/2024, ditambah pilar kepercayaan publik yang lintas bidang. Setiap indikator adalah pernyataan kebutuhan informasi yang berasal dari pertanyaan warga, dinilai pada tangga lima level yang kumulatif. Skor pilar adalah rata-rata level indikatornya, dan indeks adalah rata-rata keempat skor pilar, sehingga setiap pilar berbobot sama.</p>
     <div class="levels" id="levels"></div>
+    <div class="pillars" id="pillars"></div>
     <div class="qtable" id="qtable"></div>
   </div>
 </section>
 
-<section id="simulasi" class="band-dark">
+<section id="simulasi" class="band-dark" data-page="simulasi">
   <div class="wrap">
     <h2>Simulasi: apa yang berubah bila Kemenko bertindak?</h2>
     <p class="sub">Nyalakan aksi koordinasi di bawah. Setiap aksi memakai data yang sudah dikumpulkan lembaga terkait, jadi indeks naik bukan karena sistem baru, melainkan karena jawaban akhirnya diterbitkan.</p>
@@ -349,7 +434,7 @@ footer a{color:#E6BF62}
   </div>
 </section>
 
-<section id="bukti" class="band-grid">
+<section id="bukti" class="band-grid" data-page="bukti">
   <div class="wrap">
     <h2>Bukti dari data resmi</h2>
     <p class="sub">Empat potret yang menunjukkan jarak antara data yang sudah dikumpulkan dan jawaban yang sampai ke publik. Tahun tanpa data terbit dibiarkan kosong, bukan dikarang.</p>
@@ -391,7 +476,7 @@ footer a{color:#E6BF62}
   </div>
 </section>
 
-<section id="alur" class="band-warm">
+<section id="alur" class="band-warm" data-page="kerja-sosial">
   <div class="wrap">
     <h2>Pidana kerja sosial: satu putusan, empat lembaga</h2>
     <p class="sub">Pengadilan, kejaksaan, dan pemasyarakatan sudah bertukar data perkara lewat SPPT-TI, tetapi hasilnya belum terbit sebagai statistik publik. Pemerintah daerah, penyedia lokasi kerja, berada di luar sistem itu.</p>
@@ -409,7 +494,7 @@ footer a{color:#E6BF62}
   </div>
 </section>
 
-<section id="siklus" class="band-dark">
+<section id="siklus" class="band-dark" data-page="rencana">
   <div class="wrap">
     <h2>Rencana aksi: tiga siklus riset aksi</h2>
     <p class="sub">Setiap siklus mengikuti empat langkah yang sama. Indeks dihitung ulang di akhir siklus, sehingga kemajuan koordinasi terlihat sebagai angka yang bisa diperiksa siapa saja.</p>
@@ -417,60 +502,62 @@ footer a{color:#E6BF62}
     <ol class="cycles">
       <li class="cycle">
         <span class="when">Siklus 1, Januari–Juni 2027</span>
-        <h3>Menang cepat: overstay dan hunian</h3>
+        <h3>Menang cepat: pilar imigrasi dan pemasyarakatan</h3>
         <dl>
-          <dt>Rencanakan</dt><dd>Tetapkan daftar pertanyaan publik bersama kementerian dan lembaga; bakukan definisi overstay dan kapasitas.</dd>
-          <dt>Laksanakan</dt><dd>Terbitkan agregat bulanan dari data yang sudah beredar antarinstansi, lengkap dengan metadata.</dd>
-          <dt>Amati</dt><dd>Ketepatan jadwal rilis, jumlah revisi, dan skor pertanyaan 1–2.</dd>
+          <dt>Rencanakan</dt><dd>Tetapkan indikator bersama kementerian dan lembaga; bakukan definisi overstay, kapasitas, dan kategori penundaan keberangkatan.</dd>
+          <dt>Laksanakan</dt><dd>Terbitkan agregat bulanan dan triwulanan dari data yang sudah beredar antarinstansi, lengkap dengan metadata.</dd>
+          <dt>Amati</dt><dd>Ketepatan jadwal rilis, jumlah revisi, level indikator 6–8, dan kesepakatan dua penilai independen.</dd>
           <dt>Refleksikan</dt><dd>Forum data menilai hambatan definisi dan jadwal; pelajarannya menjadi dasar siklus 2.</dd>
-          <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan; Tim Terpadu Overstay</dd>
+          <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan; Tim Terpadu Overstay; Ditjen Imigrasi</dd>
         </dl>
-        <div class="ipt"><span>Target rata-rata level</span><b class="num">3,00</b></div>
+        <div class="ipt"><span>Target indeks</span><b class="num">3,13</b></div>
       </li>
       <li class="cycle">
         <span class="when">Siklus 2, Juli 2027–Juni 2028</span>
         <h3>Menguji pidana kerja sosial</h3>
         <dl>
           <dt>Rencanakan</dt><dd>Sepakati variabel minimum: putusan, pelaksanaan, penyelesaian, lokasi.</dd>
-          <dt>Laksanakan</dt><dd>Rilis triwulanan; analisis runtun waktu terinterupsi pola pemidanaan sebelum dan sesudah KUHP; plot corong antarwilayah.</dd>
-          <dt>Amati</dt><dd>Apakah kerja sosial menggantikan penjara atau denda; skor pertanyaan 3–5.</dd>
+          <dt>Laksanakan</dt><dd>Rilis triwulanan; analisis runtun waktu terinterupsi untuk menguji apakah kerja sosial menggantikan penjara atau denda; plot corong antarwilayah.</dd>
+          <dt>Amati</dt><dd>Level indikator 2–3 dan hasil analisis substitusi.</dd>
           <dt>Refleksikan</dt><dd>Bila lebih banyak menggantikan denda, susun rekomendasi pedoman pemidanaan bersama MA dan Kejaksaan.</dd>
           <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, Ditjenpas, dan pemda</dd>
         </dl>
-        <div class="ipt"><span>Target rata-rata level</span><b class="num">4,13</b></div>
+        <div class="ipt"><span>Target indeks</span><b class="num">3,63</b></div>
       </li>
       <li class="cycle">
         <span class="when">Siklus 3, Juli 2028–Desember 2029</span>
-        <h3>Kepercayaan terpilah dan perluasan</h3>
+        <h3>Statistik HAM terpadu dan kepercayaan terpilah</h3>
         <dl>
-          <dt>Rencanakan</dt><dd>Kalender rilis dan catatan revisi IPH; pilah indikator kepercayaan per bidang.</dd>
-          <dt>Laksanakan</dt><dd>Perluas daftar pertanyaan ke HAM dan imigrasi; uji dampak rapor terhadap kepercayaan lewat eksperimen survei.</dd>
-          <dt>Amati</dt><dd>Skor pertanyaan 6–7, kepercayaan terpilah, dan kontribusi ke target IPH 0,73.</dd>
-          <dt>Refleksikan</dt><dd>Tetapkan rapor sebagai agenda tahunan dan perbarui daftar pertanyaan bersama publik.</dd>
-          <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Hukum dan Deputi Bidang Koordinasi HAM, bersama BPHN</dd>
+          <dt>Rencanakan</dt><dd>Definisi bersama pengaduan HAM antara Komnas HAM dan Kementerian HAM; kalender rilis dan catatan revisi IPH.</dd>
+          <dt>Laksanakan</dt><dd>Terbitkan statistik pengaduan HAM terpadu dan capaian Aksi HAM nasional; pilah kepercayaan per bidang; uji dampak rapor lewat eksperimen survei.</dd>
+          <dt>Amati</dt><dd>Level indikator 1, 4, 5, dan 9; perubahan kepercayaan; kontribusi ke target IPH 0,73.</dd>
+          <dt>Refleksikan</dt><dd>Tetapkan rapor sebagai agenda tahunan dan perbarui indikator bersama publik.</dd>
+          <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi HAM dan Deputi Bidang Koordinasi Hukum, bersama Komnas HAM, BPHN, dan BPS</dd>
         </dl>
-        <div class="ipt"><span>Target rata-rata level</span><b class="num">4,63</b></div>
+        <div class="ipt"><span>Target indeks</span><b class="num">4,58</b></div>
       </li>
     </ol>
   </div>
 </section>
 
-<section id="metode" class="band-light">
+<section id="metode" class="band-light" data-page="metode">
   <div class="wrap">
     <h2>Metode</h2>
     <p class="sub">Semua alat berikut sudah baku dalam statistik resmi dan evaluasi kebijakan, sehingga bisa langsung dipakai tanpa membangun sistem baru.</p>
     <div class="method">
       <div class="box">
         <h3>Indeks Pertanyaan Terjawab</h3>
-        <div class="formula num">Indeks = rata-rata level seluruh pertanyaan (1–5)</div>
-        <p>Level ditentukan dengan empat pemeriksaan berurutan. Pertanyaan naik satu level untuk setiap pemeriksaan yang lolos, dan berhenti di pemeriksaan pertama yang gagal.</p>
+        <div class="formula num">Skor pilar = rata-rata level indikatornya; Indeks = rata-rata skor 4 pilar (1–5)</div>
+        <p>Level ditentukan dengan empat pemeriksaan berurutan. Indikator naik satu level untuk setiap pemeriksaan yang lolos, dan berhenti di pemeriksaan pertama yang gagal.</p>
         <ol class="tree">
           <li><b>Ada angka resmi publik?</b> Tidak → <span class="lname l1">Level 1, Belum tersedia</span></li>
-          <li><b>Terbit berkala dan menjawab pertanyaan secara utuh?</b> Tidak → <span class="lname l2">Level 2, Terbatas</span></li>
+          <li><b>Terbit berkala dan memenuhi indikator secara utuh?</b> Tidak → <span class="lname l2">Level 2, Terbatas</span></li>
           <li><b>Definisi, sumber, dan periode rujukan jelas; angka sama di semua kanal resmi; revisi ditandai?</b> Tidak → <span class="lname l3">Level 3, Berkala</span></li>
           <li><b>Terinci menurut wilayah atau kelompok, dan ada ukuran mutu (galat baku atau status rekonsiliasi)?</b> Tidak → <span class="lname l4">Level 4, Terdokumentasi</span>; Ya → <span class="lname l5">Level 5, Teruji</span></li>
         </ol>
         <p style="margin:10px 0 0">Untuk dibandingkan dengan indeks lain, nilai dapat dikonversi ke skala 0–100: (rata-rata level − 1) ÷ 4 × 100.</p>
+        <p style="margin:10px 0 0"><b>Struktur dan asal usul indikator.</b> Strukturnya mengikuti pedoman indeks komposit OECD dan JRC: kerangka teoretis menentukan pilar, lalu indikator dipilih berdasarkan relevansi, keterukuran, dan hubungannya satu sama lain. Tiga pilar mengikuti tiga kementerian yang dikoordinasikan (Perpres 142/2024), dan pilar keempat adalah kepercayaan publik. Kesepuluh indikator dipilih secara purposif dengan lima kriteria: berada dalam bidang koordinasi Kemenko, terkait target atau kebijakan resmi, menyangkut lebih dari satu lembaga, dapat diperiksa dari sumber publik, dan memiliki padanan internasional, antara lain SDG 16.3.1, 16.3.2, 16.2.2, dan 16.a.1, World Prison Brief, statistik sanksi komunitas Dewan Eropa, Inggris, dan Skotlandia, kerangka indikator HAM OHCHR, serta Survei Kepercayaan OECD. Pertanyaan apakah pidana kerja sosial menggantikan penjara tidak dijadikan indikator karena membutuhkan analisis sebab-akibat; jawabannya menjadi keluaran siklus 2. Empat pemeriksaan level diadaptasi dari elemen Open Data Inventory (ODIN).</p>
+        <p style="margin:10px 0 0"><b>Bedanya dengan indeks yang sudah ada.</b> Indeks Keterbukaan Informasi Publik (Komisi Informasi Pusat) menilai pelaksanaan keterbukaan informasi oleh tiap badan publik, dan Indeks Pembangunan Statistik (hasil EPSS BPS) menilai kematangan proses statistik di tiap instansi. Indeks ini menilai hal di antara keduanya: apakah kebutuhan informasi yang melintasi beberapa lembaga benar-benar terpenuhi. Tangga lima levelnya meminjam logika tingkat kematangan EPSS; keandalannya diuji dengan dua penilai independen dan analisis sensitivitas bobot.</p>
       </div>
       <div class="box">
         <h3>Alat pendukung</h3>
@@ -483,7 +570,7 @@ footer a{color:#E6BF62}
   </div>
 </section>
 
-<section id="data" class="band-grid">
+<section id="data" class="band-grid" data-page="data">
   <div class="wrap">
     <h2>Tabel data dan sumber</h2>
     <p class="sub">Semua angka pada halaman ini, lengkap dengan lokasi tabel dan nomor halaman PDF di publikasi aslinya. Klik sumber untuk membuka halaman resminya.</p>
@@ -491,7 +578,7 @@ footer a{color:#E6BF62}
   </div>
 </section>
 
-<section id="sumber" class="band-light">
+<section id="sumber" class="band-light" data-page="data">
   <div class="wrap">
     <h2>Sumber</h2>
     <div class="srcs">
@@ -500,6 +587,7 @@ footer a{color:#E6BF62}
     </div>
   </div>
 </section>
+<nav class="pager-wrap" aria-label="Navigasi halaman"><div class="wrap pager" id="pager"></div></nav>
 </main>
 
 <footer class="photo">
@@ -507,13 +595,21 @@ footer a{color:#E6BF62}
     <div class="fbrand"><span class="brand"><span class="mark" aria-hidden="true">R</span></span>Rapor Koordinasi Kumham Imipas</div>
     <p>Halaman ini adalah purwarupa gagasan pribadi penyusun esai dan tidak mewakili Kemenko Kumham Imipas, BPS, atau lembaga lain. Alamat Kemenko Kumham Imipas menurut laman resminya: Jalan H.R. Rasuna Said Kav. X6 No. 8, Kuningan, Jakarta Selatan 12940.</p>
     <p>Status "belum ada" berarti penyusun belum menemukan angka resmi yang dipublikasikan per 30 September 2026, bukan berarti data tidak pernah dikumpulkan.</p>
+    <p>Disusun oleh Muhammad Rafi Ramadhan (Badan Pusat Statistik). Versi 1.3, data per 30 September 2026.</p>
     <p>Foto gedung diambil dari laman resmi <a href="https://kumham-imipas.go.id/" target="_blank" rel="noopener">kumham-imipas.go.id</a>.</p>
-    <p><a href="#top">Kembali ke atas</a></p>
+    <p><button class="linkish" id="toTop" type="button">Kembali ke atas</button></p>
   </div>
 </footer>
 
 <script>
 const SRC = {
+  komnas2025:["RRI, 9 Juli 2026 (laporan tahunan Komnas HAM)","https://rri.co.id/nasional/2557194/komnas-ham-terima-ribuan-pengaduan-dugaan-pelanggaran-ham-sepanjang-2025"],
+  kemenham2025:["Antara, 5 Januari 2026 (Kementerian HAM)","https://megapolitan.antaranews.com/berita/479755/kementerian-ham-terima-1372-laporan-masyarakat-selama-2025"],
+  ranham:["Perpres 53/2021 tentang RANHAM 2021–2025","https://jdih.setkab.go.id/PUUdoc/176463/Salinan_Perpres_Nomor_53_Tahun_2021.pdf"],
+  panranham:["Permenkumham tentang Sekretariat PANRANHAM (BN 2022 No. 1035)","https://peraturan.go.id/files/bn1035-2022.pdf"],
+  solok:["Satu Data Kota Solok, Persentase Capaian Aksi HAM","https://porsada.solokkota.go.id/data-sektoral/7520/export/pdf"],
+  imigrasiTppo:["CNN Indonesia, 4 Agustus 2026 (Ditjen Imigrasi)","https://www.cnnindonesia.com/nasional/20260804120048-12-1388384/imigrasi-tunda-8287-keberangkatan-wni-berisiko-sepanjang-2026/amp"],
+  wpb:["World Prison Brief, Indonesia","https://prisonstudies.org/country/indonesia"],
   sk20:["BPS, Statistik Kriminal 2020","https://www.bps.go.id/id/publication/2020/11/17/0f2dfc46761281f68f11afb1/statistik-kriminal-2020.html"],
   sk21:["BPS, Statistik Kriminal 2021","https://www.bps.go.id/id/publication/2021/12/15/8d1bc84d2055e99feed39986/statistik-kriminal-2021.html"],
   sk22:["BPS, Statistik Kriminal 2022","https://www.bps.go.id/id/publication/2022/11/30/4022d3351bf3a05aa6198065"],
@@ -590,29 +686,38 @@ const IPH = [{y:2021,v:.60,s:"iph22"},{y:2022,v:.66,s:"iph23"},{y:2023,v:.68,s:"
 const PILAR = [["Kelembagaan hukum",.72,.67],["Informasi dan komunikasi",.61,.67],["Materi hukum",.60,.61],["Penegakan hukum",null,.64]];
 
 const LEVELS = [
-  {n:1,name:"Belum tersedia",d:"Belum ada angka resmi yang dipublikasikan untuk menjawab pertanyaan ini."},
-  {n:2,name:"Terbatas",d:"Angka resmi pernah disebut, tetapi hanya sekali, tidak berkala, atau baru menjawab sebagian pertanyaan."},
-  {n:3,name:"Berkala",d:"Angka terbit berkala (bulanan, triwulanan, atau tahunan) dan menjawab pertanyaan secara utuh."},
+  {n:1,name:"Belum tersedia",d:"Belum ada angka resmi yang dipublikasikan untuk memenuhi indikator ini."},
+  {n:2,name:"Terbatas",d:"Angka resmi pernah disebut, tetapi hanya sekali, tidak berkala, atau baru memenuhi sebagian indikator."},
+  {n:3,name:"Berkala",d:"Angka terbit berkala (bulanan, triwulanan, atau tahunan) dan memenuhi indikator secara utuh."},
   {n:4,name:"Terdokumentasi",d:"Ditambah definisi, sumber, dan periode rujukan yang jelas; angkanya sama di semua kanal resmi; revisi ditandai."},
   {n:5,name:"Teruji",d:"Ditambah rincian menurut wilayah atau kelompok, dan ukuran mutu: galat baku untuk survei atau status rekonsiliasi untuk data administratif."}
 ];
-const CHECKS = ["Ada angka resmi publik","Berkala dan menjawab utuh","Terdokumentasi dan konsisten","Terinci dan ada ukuran mutu"];
+const CHECKS = ["Ada angka resmi publik","Berkala dan memenuhi utuh","Terdokumentasi dan konsisten","Terinci dan ada ukuran mutu"];
+const PIL = [
+  {k:"hukum",n:"Hukum",d:"Deputi Bidang Koordinasi Hukum"},
+  {k:"ham",n:"HAM",d:"Deputi Bidang Koordinasi HAM"},
+  {k:"imipas",n:"Imigrasi dan pemasyarakatan",d:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan"},
+  {k:"trust",n:"Kepercayaan publik",d:"Lintas bidang"}
+];
 const Q = [
-  {id:1,b:"Pemasyarakatan",q:"Berapa penghuni dan kapasitas lapas serta rutan bulan ini?",c:[1,0,0,0],e:"Angka resmi pernah disebut (271.468 penghuni, kapasitas 146.860, April 2026), tetapi penyusun tidak menemukan seri berkala untuk publik, dan kanal resmi lain pada bulan yang sama menyebut kapasitas 146.260.",src:[["imipas2026"],["pas2026"]]},
-  {id:2,b:"Pemasyarakatan",q:"Berapa tahanan yang saat ini mengalami overstay?",c:[1,0,0,0],e:"Angka 4.987 disebut sekali dalam rilis Kemenko, masih berstatus data sementara, dan definisi overstay belum disepakati antarlembaga. Pemutakhiran bulanan hanya beredar antarinstansi.",src:[["overstay"]]},
-  {id:3,b:"Hukum",q:"Berapa putusan pidana kerja sosial sejak KUHP berlaku?",c:[1,0,0,0],e:"MA membuka angka 218 putusan dari 35 pengadilan negeri (Januari hingga 26 Mei 2026) dalam satu rilis berita, belum sebagai seri berkala.",src:[["ma"]]},
-  {id:4,b:"Hukum",q:"Berapa pidana kerja sosial yang tuntas, dan berapa yang gagal dijalankan?",c:[0,0,0,0],e:"Belum ada angka publik. Pengawasan oleh jaksa dan pembimbingan oleh pembimbing kemasyarakatan belum terbit sebagai statistik.",src:[["kuhp","Pasal 85"]]},
-  {id:5,b:"Hukum",q:"Apakah pidana kerja sosial menggantikan penjara, bukan denda?",c:[0,0,0,0],e:"Belum ada analisis publik. KUHP membuka dua jalur (pengganti penjara paling lama enam bulan atau denda kategori II), sehingga risiko perluasan jaring pemidanaan perlu diuji.",src:[["kuhp","Pasal 85"]]},
-  {id:6,b:"Hukum",q:"Berapa skor IPH terbaru dan skor tiap pilarnya?",c:[1,1,0,0],e:"IPH terbit setiap tahun (2021–2024) dan metadatanya tersedia, tetapi angka 2024 berbeda antarkanal: laporan akhir mencatat 0,68, satu rilis lain menyebut 0,69. Syarat level 4 belum terpenuhi.",src:[["iph24"],["iph068"],["iph069"],["iphMeta"]]},
-  {id:7,b:"Lintas bidang",q:"Seberapa percaya publik pada lembaga hukum, dipilah per bidang koordinasi?",c:[1,0,0,0],e:"Indikator kepercayaan publik sudah ada di pilar budaya hukum IPH, tetapi tidak dipilah per bidang koordinasi, sehingga baru menjawab sebagian pertanyaan.",src:[["iphMeta"],["datagoid"]]},
-  {id:8,b:"Lintas bidang",q:"Berapa persen korban kejahatan yang melapor ke polisi?",c:[1,1,1,1],e:"BPS menerbitkannya setiap tahun lewat Susenas dengan konsep dan definisi yang jelas, angka yang konsisten antaredisi, rincian per provinsi, serta galat baku: 20,28% pada 2024 (RSE 4,23%).",src:[["sk2425","Lampiran 49, hlm. PDF 201"],["sk2425","Lampiran 60, hlm. PDF 219"]]}
+  {id:1,p:"hukum",b:"Hukum",q:"Publik dapat mengetahui skor IPH terbaru beserta skor setiap pilarnya.",c:[1,1,0,0],e:"IPH terbit setiap tahun (2021–2024) dan metadatanya tersedia, tetapi angka 2024 berbeda antarkanal: laporan akhir mencatat 0,68, satu rilis lain menyebut 0,69. Syarat level 4 belum terpenuhi.",src:[["iph24"],["iph068"],["iph069"],["iphMeta"]]},
+  {id:2,p:"hukum",b:"Hukum",q:"Publik dapat mengetahui jumlah putusan pidana kerja sosial sejak KUHP berlaku.",c:[1,0,0,0],e:"MA membuka angka 218 putusan dari 35 pengadilan negeri (Januari hingga 26 Mei 2026) dalam satu rilis berita, belum sebagai seri berkala.",src:[["ma"]]},
+  {id:3,p:"hukum",b:"Hukum",q:"Publik dapat mengetahui jumlah pidana kerja sosial yang tuntas dan yang gagal dijalankan.",c:[0,0,0,0],e:"Belum ada angka publik. Pengawasan oleh jaksa dan pembimbingan oleh pembimbing kemasyarakatan belum terbit sebagai statistik.",src:[["kuhp","Pasal 85"]]},
+  {id:4,p:"ham",b:"HAM",q:"Publik dapat mengetahui jumlah pengaduan dugaan pelanggaran HAM secara nasional beserta tindak lanjutnya.",c:[1,0,0,0],e:"Angkanya tersebar di dua lembaga tanpa angka nasional yang terkonsolidasi: Komnas HAM menerima 3.003 pengaduan sepanjang 2025, sedangkan Kementerian HAM menerima 1.372 laporan. Tumpang tindih antarlembaga dan status tindak lanjutnya belum diketahui.",src:[["komnas2025"],["kemenham2025"]]},
+  {id:5,p:"ham",b:"HAM",q:"Publik dapat mengetahui capaian pelaksanaan Aksi HAM oleh kementerian, lembaga, dan pemerintah daerah.",c:[1,0,0,0],e:"Aksi HAM wajib dilaksanakan setiap tahun dan laporan capaiannya wajib dipublikasikan, tetapi penyusun belum menemukan angka capaian nasional untuk publik. Sebagian daerah menerbitkannya sendiri di portal Satu Data.",src:[["ranham"],["panranham"],["solok"]]},
+  {id:6,p:"imipas",b:"Imigrasi dan pemasyarakatan",q:"Publik dapat mengetahui jumlah penghuni dan kapasitas lapas serta rutan terkini.",c:[1,0,0,0],e:"Angka resmi pernah disebut (271.468 penghuni, kapasitas 146.860, April 2026), tetapi penyusun tidak menemukan seri berkala untuk publik, dan kanal resmi lain pada bulan yang sama menyebut kapasitas 146.260.",src:[["imipas2026"],["pas2026"]]},
+  {id:7,p:"imipas",b:"Imigrasi dan pemasyarakatan",q:"Publik dapat mengetahui jumlah tahanan yang mengalami overstay.",c:[1,0,0,0],e:"Angka 4.987 disebut sekali dalam rilis Kemenko, masih berstatus data sementara, dan definisi overstay belum disepakati antarlembaga. Pemutakhiran bulanan hanya beredar antarinstansi.",src:[["overstay"]]},
+  {id:8,p:"imipas",b:"Imigrasi dan pemasyarakatan",q:"Publik dapat mengetahui jumlah WNI yang ditunda keberangkatannya karena berisiko menjadi korban TPPO atau PMI nonprosedural.",c:[1,0,0,0],e:"Angkanya hanya muncul dalam siaran pers tematik: 6.524 penundaan keberangkatan PMI nonprosedural sepanjang 2025, sementara rilis yang sama menyebut 9.456 penundaan WNI berisiko TPPO pada Januari–Juli 2025. Rilis tidak menjelaskan hubungan kedua kategori.",src:[["imigrasiTppo"]]},
+  {id:9,p:"trust",b:"Kepercayaan publik",q:"Publik dapat mengetahui tingkat kepercayaan terhadap lembaga hukum menurut bidang koordinasi.",c:[1,0,0,0],e:"Indikator kepercayaan publik sudah ada di pilar budaya hukum IPH, tetapi tidak dipilah per bidang koordinasi, sehingga baru memenuhi sebagian indikator.",src:[["iphMeta"],["datagoid"]]},
+  {id:10,p:"trust",b:"Kepercayaan publik",q:"Publik dapat mengetahui persentase korban kejahatan yang melapor ke polisi.",c:[1,1,1,1],e:"BPS menerbitkannya setiap tahun lewat Susenas dengan konsep dan definisi yang jelas, angka yang konsisten antaredisi, rincian per provinsi, serta galat baku: 20,28% pada 2024 (RSE 4,23%).",src:[["sk2425","Lampiran 49, hlm. PDF 201"],["sk2425","Lampiran 60, hlm. PDF 219"]]}
 ];
 const ACTS = [
-  {id:"a1",t:"Rilis bulanan hunian dan kapasitas lapas per kanwil, dengan metadata dan catatan revisi",p:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan, bersama Ditjenpas",set:{1:[1,1,1,1]}},
-  {id:"a2",t:"Bakukan definisi overstay; rilis agregat bulanan per kanwil dengan status rekonsiliasi",p:"Tim Terpadu Penanganan Overstay",set:{2:[1,1,1,1]}},
-  {id:"a3",t:"Rilis triwulanan pidana kerja sosial per provinsi: putusan, pelaksanaan, penyelesaian",p:"Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, dan Ditjenpas",set:{3:[1,1,1,1],4:[1,1,1,0]}},
-  {id:"a4",t:"Analisis tahunan runtun waktu pola pemidanaan sebelum dan sesudah KUHP",p:"Deputi Bidang Koordinasi Hukum, bersama mitra akademik dan statistik",set:{5:[1,1,1,0]}},
-  {id:"a5",t:"Kalender rilis dan catatan revisi IPH; pilah indikator kepercayaan per bidang dengan galat baku",p:"Asdep Koordinasi Budaya, Informasi, dan Komunikasi Hukum, bersama BPHN",set:{6:[1,1,1,0],7:[1,1,1,1]}}
+  {id:"a1",t:"Rilis bulanan hunian dan kapasitas lapas per kanwil, dengan metadata dan catatan revisi",p:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan, bersama Ditjenpas",set:{6:[1,1,1,1]}},
+  {id:"a2",t:"Bakukan definisi overstay; rilis agregat bulanan per kanwil dengan status rekonsiliasi",p:"Tim Terpadu Penanganan Overstay",set:{7:[1,1,1,1]}},
+  {id:"a3",t:"Rilis triwulanan penundaan keberangkatan WNI berisiko TPPO per TPI, dengan definisi baku dan rekonsiliasi lintas lembaga",p:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan, bersama Ditjen Imigrasi, KP2MI, dan Polri",set:{8:[1,1,1,1]}},
+  {id:"a4",t:"Rilis triwulanan pidana kerja sosial per provinsi: putusan, pelaksanaan, penyelesaian",p:"Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, dan Ditjenpas",set:{2:[1,1,1,1],3:[1,1,1,0]}},
+  {id:"a5",t:"Statistik HAM terpadu: satukan data pengaduan dengan definisi bersama; terbitkan capaian Aksi HAM nasional",p:"Deputi Bidang Koordinasi HAM, bersama Komnas HAM dan Kementerian HAM",set:{4:[1,1,1,0],5:[1,1,1,0]}},
+  {id:"a6",t:"Kalender rilis dan catatan revisi IPH; pilah indikator kepercayaan per bidang dengan galat baku",p:"Deputi Bidang Koordinasi Hukum, bersama BPHN dan BPS",set:{1:[1,1,1,0],9:[1,1,1,1]}}
 ];
 const levelOf = c => { let l=1; for(const x of c){ if(x) l++; else break; } return l; };
 
@@ -643,7 +748,8 @@ function setGauge(id,v){
   if(t) t.textContent = fmt2(v);
 }
 const baseLevels = () => Object.fromEntries(Q.map(q=>[q.id,levelOf(q.c)]));
-const ipt = lv => Object.values(lv).reduce((a,b)=>a+b,0)/Q.length;
+const pilScores = lv => Object.fromEntries(PIL.map(P=>{ const xs=Q.filter(q=>q.p===P.k).map(q=>lv[q.id]); return [P.k, xs.reduce((a,b)=>a+b,0)/xs.length]; }));
+const ipt = lv => { const ps=Object.values(pilScores(lv)); return ps.reduce((a,b)=>a+b,0)/ps.length; };
 const levelName = n => LEVELS[n-1].name;
 
 /* ---------- Hero ---------- */
@@ -654,23 +760,92 @@ function buildFacts(){
     <li><b class="num">20,28%</b><span>korban kejahatan yang melapor ke polisi pada 2024, turun dari 23,36%</span><span>${sl("sk2425","Lampiran 49, hlm. PDF 201")}</span></li>`;
 }
 
+
+/* ---------- Halaman dan menu ---------- */
+const PAGES = [
+  {k:"beranda", t:"Beranda", d:"Ringkasan gagasan dan isi situs"},
+  {k:"indeks", t:"Indeks", d:"Empat pilar, sepuluh indikator, dan hasil audit"},
+  {k:"simulasi", t:"Simulasi", d:"Nyalakan aksi koordinasi dan lihat indeks berubah"},
+  {k:"bukti", t:"Bukti data", d:"Grafik dari data resmi BPS, Kemenimipas, MA, dan Bappenas"},
+  {k:"kerja-sosial", t:"Kerja sosial", d:"Studi kasus satu putusan yang melibatkan empat lembaga"},
+  {k:"rencana", t:"Rencana aksi", d:"Tiga siklus riset aksi, 2027 sampai 2029"},
+  {k:"metode", t:"Metode", d:"Rumus, pemeriksaan level, dan dasar ilmiahnya"},
+  {k:"data", t:"Data dan sumber", d:"Tabel lengkap dengan tautan ke setiap sumber"}
+];
+function pageKeyFor(hash){
+  const h=(hash||"").replace(/^#/,"");
+  if(!h) return {k:"beranda"};
+  if(PAGES.some(p=>p.k===h)) return {k:h};
+  const el=document.getElementById(h);
+  const host=el && el.closest("[data-page]");
+  if(host){ const first=document.querySelector(`[data-page="${host.dataset.page}"]`); return {k:host.dataset.page, anchor: el===first ? null : h}; }
+  return null;
+}
+function keyFigures(){
+  const v=ipt(baseLevels());
+  const nSrc=document.querySelectorAll("#srcOfficial li").length, nJ=document.querySelectorAll("#srcJournal li").length;
+  return {indeks:`${dec(v,2)} dari 5`, simulasi:`${ACTS.length} aksi`, bukti:`${document.querySelectorAll("#bukti figure").length} grafik`, "kerja-sosial":"4 lembaga", rencana:"3 siklus", metode:"5 level", data:`${nSrc+nJ} sumber`};
+}
+function buildNav(){
+  document.getElementById("navLinks").innerHTML = PAGES.map(p=>`<a href="#${p.k}" data-k="${p.k}">${p.t}</a>`).join("");
+  document.getElementById("menuList").innerHTML = PAGES.map((p,i)=>`<li><a href="#${p.k}" data-k="${p.k}"><span class="mn">${i+1}</span><b>${p.t}</b><small>${p.d}</small></a></li>`).join("");
+  const kf=keyFigures();
+  document.getElementById("toc").innerHTML = PAGES.slice(1).map((p,i)=>`<li><a href="#${p.k}"><span class="tn">${i+1}</span><span class="tt">${p.t}</span><span class="tk num">${kf[p.k]||""}</span><span class="td">${p.d}</span></a></li>`).join("");
+  const btn=document.getElementById("menuBtn"), panel=document.getElementById("menuPanel");
+  const close=()=>{ panel.hidden=true; btn.setAttribute("aria-expanded","false"); };
+  btn.addEventListener("click",()=>{ const open=panel.hidden; panel.hidden=!open; btn.setAttribute("aria-expanded",String(open)); if(open) panel.querySelector("a")?.focus(); });
+  panel.addEventListener("click",e=>{ if(e.target.closest("a")) close(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden){ close(); btn.focus(); } });
+  document.addEventListener("click",e=>{ if(!panel.hidden && !e.target.closest("#menuPanel") && !e.target.closest("#menuBtn")) close(); });
+  document.getElementById("toTop").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  document.getElementById("copyCite").addEventListener("click",async e=>{
+    const t=document.getElementById("citeText").innerText;
+    try{ await navigator.clipboard.writeText(t); e.target.textContent="Kutipan disalin"; }
+    catch(err){ const r=document.createRange(); r.selectNodeContents(document.getElementById("citeText")); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); e.target.textContent="Tekan Ctrl+C untuk menyalin"; }
+  });
+}
+let firstRoute=true;
+function route(){
+  const res=pageKeyFor(location.hash);
+  if(!res){ if(location.hash==="#konten") document.getElementById("konten").focus(); return; }
+  const k=res.k, idx=PAGES.findIndex(p=>p.k===k), P=PAGES[idx];
+  document.querySelectorAll("[data-page]").forEach(el=>{ el.hidden = el.dataset.page!==k; });
+  document.querySelectorAll("#navLinks a, #menuList a").forEach(a=>{ if(a.dataset.k===k) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  const crumb=document.getElementById("crumb");
+  crumb.hidden = k==="beranda";
+  document.getElementById("crumbPath").innerHTML = `<a href="#beranda">Beranda</a> / <b>${P.t}</b>`;
+  document.getElementById("crumbPos").textContent = `Bagian ${idx} dari ${PAGES.length-1}`;
+  const prev=PAGES[idx-1], next=PAGES[idx+1];
+  document.getElementById("pager").innerHTML = (prev?`<a class="prev" href="#${prev.k}"><small>Sebelumnya</small><b>${prev.t}</b></a>`:"")+(next?`<a class="next" href="#${next.k}"><small>Selanjutnya</small><b>${next.t}</b></a>`:"");
+  document.title = k==="beranda" ? "Rapor Koordinasi Kumham Imipas — Purwarupa Indeks Pertanyaan Terjawab" : `${P.t} | Rapor Koordinasi Kumham Imipas`;
+  if(k==="simulasi") updateSim();
+  if(k==="beranda") setGauge("gHero", ipt(baseLevels()));
+  if(res.anchor){ requestAnimationFrame(()=>document.getElementById(res.anchor)?.scrollIntoView()); }
+  else if(!firstRoute){ window.scrollTo(0,0); }
+  if(!firstRoute){ const h=document.querySelector(`[data-page="${k}"] h1, [data-page="${k}"] h2`); if(h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); } }
+  firstRoute=false;
+}
 /* ---------- Audit pertanyaan ---------- */
 function ladder(n){ return `<div class="ladder" aria-hidden="true">${[1,2,3,4,5].map(i=>`<span class="${i<=n?"on l"+n:""}"></span>`).join("")}</div>`; }
 function buildLevelGuide(){
   document.getElementById("levels").innerHTML = LEVELS.map(l=>`<div class="lvl l${l.n}"><div class="lvl-top"><b class="num">${l.n}</b><span>${l.name}</span></div>${ladder(l.n)}<p>${l.d}</p></div>`).join("");
 }
 function buildQuestions(){
+  const lv=baseLevels(), ps=pilScores(lv), v=ipt(lv);
+  document.getElementById("pillars").innerHTML = PIL.map((P,k)=>{ const n=Q.filter(q=>q.p===P.k).length; return `<div class="pil"><span class="pil-no">Pilar ${k+1}</span><b>${P.n}</b><span class="pil-d">${P.d}; ${n} indikator</span><span class="pil-s num">${dec(ps[P.k],2)}</span></div>`; }).join("");
   const el=document.getElementById("qtable");
-  let html=`<div class="qrow qhead"><span>Bidang</span><span>Pertanyaan, pemeriksaan, bukti, dan sumber</span><span style="text-align:right">Level</span></div>`;
-  Q.forEach(q=>{
-    const n=levelOf(q.c);
-    const checks=CHECKS.map((t,i)=>`<span class="ck ${q.c[i]?"ok":"no"}">${q.c[i]?"✓":"✗"} ${t}</span>`).join("");
-    html+=`<div class="qrow"><span class="tag">${q.b}</span>
-      <div><div class="qtext">${q.id}. ${q.q}</div><div class="checks">${checks}</div><p class="qev">${q.e}</p><div>${q.src.map(([k,l])=>sl(k,l)).join("")}</div></div>
-      <div class="score">${ladder(n)}<span class="v num">Level ${n}</span><span class="lname l${n}">${levelName(n)}</span></div></div>`;
+  let html=`<div class="qrow qhead"><span>Pilar</span><span>Indikator, pemeriksaan, bukti, dan sumber</span><span style="text-align:right">Level</span></div>`;
+  PIL.forEach((P,k)=>{
+    html+=`<div class="qgroup"><span>Pilar ${k+1}: ${P.n}</span><span class="num">Skor pilar ${dec(ps[P.k],2)}</span></div>`;
+    Q.filter(q=>q.p===P.k).forEach(q=>{
+      const n=levelOf(q.c);
+      const checks=CHECKS.map((t,i)=>`<span class="ck ${q.c[i]?"ok":"no"}">${q.c[i]?"✓":"✗"} ${t}</span>`).join("");
+      html+=`<div class="qrow"><span class="tag">${q.b}</span>
+        <div><div class="qtext">${q.id}. ${q.q}</div><div class="checks">${checks}</div><p class="qev">${q.e}</p><div>${q.src.map(([k,l])=>sl(k,l)).join("")}</div></div>
+        <div class="score">${ladder(n)}<span class="v num">Level ${n}</span><span class="lname l${n}">${levelName(n)}</span></div></div>`;
+    });
   });
-  const lv=baseLevels(), sum=Object.values(lv).reduce((a,b)=>a+b,0), v=ipt(lv);
-  html+=`<div class="qfoot"><span>Indeks = rata-rata level = ${sum} ÷ ${Q.length}. Setara ${dec((v-1)/4*100,0)} pada skala 0–100.</span><b class="num">${dec(v,2)} dari 5</b></div>`;
+  html+=`<div class="qfoot"><span>Indeks = rata-rata skor ${PIL.length} pilar = (${PIL.map(P=>dec(ps[P.k],2)).join(" + ")}) ÷ ${PIL.length}. Setara ${dec((v-1)/4*100,0)} pada skala 0–100.</span><b class="num">${dec(v,2)} dari 5</b></div>`;
   el.innerHTML=html;
 }
 function buildSim(){
@@ -686,8 +861,8 @@ function updateSim(){
   const changed=Q.filter(q=>cur[q.id]!==base[q.id]);
   const v0=ipt(base), v=ipt(cur);
   setGauge("gSim",v);
-  document.getElementById("simDelta").textContent = changed.length ? `Rata-rata level naik dari ${dec(v0,2)} menjadi ${dec(v,2)} (dari 5)` : `Posisi awal ${dec(v0,2)} dari 5. Nyalakan aksi untuk melihat perubahan.`;
-  document.getElementById("simChanges").innerHTML = changed.map(q=>`<li><span class="dot" style="background:var(--ok)"></span><span>Pertanyaan ${q.id}: Level ${base[q.id]} (${levelName(base[q.id])}) menjadi Level ${cur[q.id]} (${levelName(cur[q.id])})</span></li>`).join("");
+  document.getElementById("simDelta").textContent = changed.length ? `Indeks naik dari ${dec(v0,2)} menjadi ${dec(v,2)} (dari 5)` : `Posisi awal ${dec(v0,2)} dari 5. Nyalakan aksi untuk melihat perubahan.`;
+  document.getElementById("simChanges").innerHTML = changed.map(q=>`<li><span class="dot" style="background:var(--ok)"></span><span>Indikator ${q.id}: Level ${base[q.id]} (${levelName(base[q.id])}) menjadi Level ${cur[q.id]} (${levelName(cur[q.id])})</span></li>`).join("");
 }
 
 /* ---------- Grafik ---------- */
@@ -775,6 +950,16 @@ function buildDataTable(){
   HUNI.forEach(d=>{ row("Penghuni lapas dan rutan",d.p,fmtN(d.h),sl(d.s),""); row("Kapasitas lapas dan rutan",d.p,fmtN(d.k),sl(d.s),""); });
   row("Kapasitas (kanal resmi lain)","April 2026","146.260",sl("pas2026"),"Berbeda dari angka Kemenimipas bulan yang sama");
   row("Tahanan teridentifikasi overstay","Juli 2026","4.987",sl("overstay"),"Data sementara, menunggu verifikasi MA, Kejaksaan, dan Polri");
+  row("Tingkat hunian (kapasitas resmi)","31 Des 2025","184,5%",sl("wpb"),"Pembanding internasional");
+  row("Tahanan belum divonis (SDG 16.3.2)","31 Des 2025","21,7%",sl("wpb"),"");
+  grp("Pengaduan dugaan pelanggaran HAM");
+  row("Pengaduan ke Komnas HAM","2025","3.003",sl("komnas2025"),"Laporan tahunan Komnas HAM");
+  row("Laporan masyarakat ke Kementerian HAM","2025","1.372",sl("kemenham2025"),"604 kantor pusat, 768 kantor wilayah");
+  grp("Penundaan keberangkatan WNI (Ditjen Imigrasi)");
+  row("Penundaan keberangkatan PMI nonprosedural","2024","20.291",sl("imigrasiTppo"),"");
+  row("Penundaan keberangkatan PMI nonprosedural","2025","6.524",sl("imigrasiTppo"),"");
+  row("Penundaan keberangkatan WNI berisiko TPPO","Jan–Jul 2025","9.456",sl("imigrasiTppo"),"Kategori berbeda dari baris di atas");
+  row("Penundaan keberangkatan WNI berisiko TPPO","Jan–Jul 2026","8.287",sl("imigrasiTppo"),"");
   grp("Pidana kerja sosial");
   row("Putusan pidana kerja sosial","Jan–26 Mei 2026","218",sl("ma"),"Dari 35 pengadilan negeri");
   row("Putusan dari PN Pulau Punjung","Jan–26 Mei 2026","108 (49,54%)",sl("ma"),"");
@@ -787,7 +972,7 @@ function buildDataTable(){
 }
 
 function buildSources(){
-  const used=new Set(["sk20","sk21","sk22","sk23","sk24","sk2425","imipas2026","pas2026","pas2025","pas2021","overstay","ma","kuhp","iph22","iph23","iph24","iph068","iph069","iphPilar","iphTarget","iphMeta","datagoid","sppt"]);
+  const used=new Set(["sk20","sk21","sk22","sk23","sk24","sk2425","imipas2026","pas2026","pas2025","pas2021","overstay","ma","kuhp","iph22","iph23","iph24","iph068","iph069","iphPilar","iphTarget","iphMeta","datagoid","sppt","wpb","komnas2025","kemenham2025","ranham","panranham","solok","imigrasiTppo"]);
   document.getElementById("srcOfficial").innerHTML = [...used].map(k=>{ const [t,u]=SRC[k]; return `<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`; }).join("");
   document.getElementById("srcJournal").innerHTML = JOURNALS.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`).join("");
   const bp=document.getElementById("bpsPractice");
@@ -799,7 +984,7 @@ function buildSources(){
   let saved=null; try{ saved=localStorage.getItem("rapor-theme"); }catch(e){}
   if(saved) root.setAttribute("data-theme",saved);
   const dark=()=> root.getAttribute("data-theme")==="dark" || (!root.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
-  const label=()=> btn.textContent = dark() ? "Tema terang" : "Tema gelap";
+  const label=()=>{ const t = dark() ? "Tema terang" : "Tema gelap"; btn.querySelector(".tb-label").textContent=t; btn.setAttribute("aria-label","Ganti ke "+t.toLowerCase()); };
   label();
   btn.addEventListener("click",()=>{ const t=dark()?"light":"dark"; root.setAttribute("data-theme",t); try{ localStorage.setItem("rapor-theme",t); }catch(e){} label(); });
 })();
@@ -808,7 +993,7 @@ gauge(document.getElementById("heroGauge"),"gHero");
 gauge(document.getElementById("simGauge"),"gSim");
 buildFacts(); buildLevelGuide(); buildQuestions(); buildSim();
 chLapor(); chRegSur(); chHuni(); chPks(); chIph();
-buildDataTable(); buildSources();
+buildDataTable(); buildSources(); buildNav(); route(); window.addEventListener("hashchange", route);
 requestAnimationFrame(()=>setGauge("gHero", ipt(baseLevels())));
 
 </script>
