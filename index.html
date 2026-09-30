@@ -255,6 +255,31 @@ footer a{color:#E6BF62}
 :root[data-theme="dark"] .hero-card a{color:#9DC1F6}
 :root[data-theme="dark"] .panel .delta{color:#A4B5CA}
 :root[data-theme="dark"] .notice{background:#2A2210;color:#EBD9AE}
+
+/* Level scale */
+.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 22px}
+.lvl{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;box-shadow:var(--shadow)}
+.lvl-top{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.lvl-top b{font-size:26px;font-weight:800;line-height:1}
+.lvl-top span{font-weight:800;font-size:14.5px}
+.lvl p{margin:8px 0 0;font-size:13px;color:var(--ink2);line-height:1.45}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;width:100%;max-width:130px}
+.ladder span{height:8px;border-radius:2px;background:color-mix(in srgb,var(--line) 80%,transparent)}
+.score .ladder{margin-left:auto}
+.ladder span.on.l1{background:#B3372D}.ladder span.on.l2{background:#D0782A}.ladder span.on.l3{background:#C9A227}.ladder span.on.l4{background:#5E9F4E}.ladder span.on.l5{background:#2A7A55}
+.lvl.l1 .lvl-top b{color:#B3372D}.lvl.l2 .lvl-top b{color:#D0782A}.lvl.l3 .lvl-top b{color:#B08A14}.lvl.l4 .lvl-top b{color:#4E8D40}.lvl.l5 .lvl-top b{color:#2A7A55}
+.lname{display:inline-block;font-size:12.5px;font-weight:800;padding:2px 9px;border-radius:999px;margin-top:4px}
+.lname.l1{background:#F8E3E0;color:#9A2E25}.lname.l2{background:#F9E8D6;color:#8F4D14}.lname.l3{background:#F6EDCB;color:#7A5F08}.lname.l4{background:#E4F0DF;color:#3A6E2E}.lname.l5{background:#DDF0E6;color:#1F6444}
+.score .v{font-size:20px}
+.checks{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.ck{font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:6px;border:1px solid var(--line)}
+.ck.ok{color:var(--ok);background:var(--okbg);border-color:color-mix(in srgb,var(--ok) 40%,transparent)}
+.ck.no{color:var(--ink2);background:transparent}
+.tree{margin:6px 0 0;padding-left:20px;font-size:14.5px;display:grid;gap:8px;color:var(--ink2)}
+.tree b{color:var(--ink)}
+@media (max-width:980px){.levels{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.levels{grid-template-columns:1fr}}
+@media (max-width:760px){.score .ladder{margin-left:0}}
 </style>
 </head>
 <body>
@@ -291,7 +316,7 @@ footer a{color:#E6BF62}
     <div class="hero-card">
       <div class="g" id="heroGauge"></div>
       <strong>Indeks Pertanyaan Terjawab</strong>
-      <p>Audit awal 8 pertanyaan publik, September 2026</p>
+      <p>Rata-rata level 8 pertanyaan publik pada skala 1–5, audit September 2026</p>
       <a href="#metode">Lihat cara menghitungnya</a>
     </div>
   </div>
@@ -302,7 +327,8 @@ footer a{color:#E6BF62}
 <section id="pertanyaan" class="band-light">
   <div class="wrap">
     <h2>Delapan pertanyaan publik, dan seberapa jauh data resmi bisa menjawabnya</h2>
-    <p class="sub">Setiap pertanyaan dinilai 1 bila terjawab penuh oleh data resmi yang terbit berjadwal dan konsisten, 0,5 bila terjawab sebagian, dan 0 bila belum ada angka publik. Pertanyaan bidang HAM dan imigrasi sengaja belum dinilai: daftarnya disusun bersama pemangku kepentingan pada siklus pertama.</p>
+    <p class="sub">Setiap pertanyaan dinilai pada tangga lima level. Levelnya kumulatif: sebuah pertanyaan baru naik satu level bila lolos satu pemeriksaan ya/tidak, dan berhenti di pemeriksaan pertama yang gagal. Pertanyaan bidang HAM dan imigrasi sengaja belum dinilai; daftarnya disusun bersama pemangku kepentingan pada siklus pertama.</p>
+    <div class="levels" id="levels"></div>
     <div class="qtable" id="qtable"></div>
   </div>
 </section>
@@ -399,7 +425,7 @@ footer a{color:#E6BF62}
           <dt>Refleksikan</dt><dd>Forum data menilai hambatan definisi dan jadwal; pelajarannya menjadi dasar siklus 2.</dd>
           <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan; Tim Terpadu Overstay</dd>
         </dl>
-        <div class="ipt"><span>Target indeks</span><b class="num">0,56</b></div>
+        <div class="ipt"><span>Target rata-rata level</span><b class="num">3,00</b></div>
       </li>
       <li class="cycle">
         <span class="when">Siklus 2, Juli 2027–Juni 2028</span>
@@ -411,7 +437,7 @@ footer a{color:#E6BF62}
           <dt>Refleksikan</dt><dd>Bila lebih banyak menggantikan denda, susun rekomendasi pedoman pemidanaan bersama MA dan Kejaksaan.</dd>
           <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, Ditjenpas, dan pemda</dd>
         </dl>
-        <div class="ipt"><span>Target indeks</span><b class="num">0,88</b></div>
+        <div class="ipt"><span>Target rata-rata level</span><b class="num">4,13</b></div>
       </li>
       <li class="cycle">
         <span class="when">Siklus 3, Juli 2028–Desember 2029</span>
@@ -423,7 +449,7 @@ footer a{color:#E6BF62}
           <dt>Refleksikan</dt><dd>Tetapkan rapor sebagai agenda tahunan dan perbarui daftar pertanyaan bersama publik.</dd>
           <dt>Penanggung jawab</dt><dd>Deputi Bidang Koordinasi Hukum dan Deputi Bidang Koordinasi HAM, bersama BPHN</dd>
         </dl>
-        <div class="ipt"><span>Target indeks</span><b class="num">1,00</b></div>
+        <div class="ipt"><span>Target rata-rata level</span><b class="num">4,63</b></div>
       </li>
     </ol>
   </div>
@@ -436,12 +462,15 @@ footer a{color:#E6BF62}
     <div class="method">
       <div class="box">
         <h3>Indeks Pertanyaan Terjawab</h3>
-        <div class="formula num">IPT = (s₁ + s₂ + … + sₙ) ÷ n,  sᵢ ∈ {0; 0,5; 1}</div>
-        <table class="rub" aria-label="Rubrik penilaian">
-          <tr><td class="num">1</td><td>Angka resmi tersedia untuk publik, terbit berjadwal, disertai definisi, dan konsisten antarkanal.</td></tr>
-          <tr><td class="num">0,5</td><td>Angka resmi ada, tetapi sekali terbit, parsial, tanpa definisi, atau berbeda antarkanal.</td></tr>
-          <tr><td class="num">0</td><td>Belum ada angka publik.</td></tr>
-        </table>
+        <div class="formula num">Indeks = rata-rata level seluruh pertanyaan (1–5)</div>
+        <p>Level ditentukan dengan empat pemeriksaan berurutan. Pertanyaan naik satu level untuk setiap pemeriksaan yang lolos, dan berhenti di pemeriksaan pertama yang gagal.</p>
+        <ol class="tree">
+          <li><b>Ada angka resmi publik?</b> Tidak → <span class="lname l1">Level 1, Belum tersedia</span></li>
+          <li><b>Terbit berkala dan menjawab pertanyaan secara utuh?</b> Tidak → <span class="lname l2">Level 2, Terbatas</span></li>
+          <li><b>Definisi, sumber, dan periode rujukan jelas; angka sama di semua kanal resmi; revisi ditandai?</b> Tidak → <span class="lname l3">Level 3, Berkala</span></li>
+          <li><b>Terinci menurut wilayah atau kelompok, dan ada ukuran mutu (galat baku atau status rekonsiliasi)?</b> Tidak → <span class="lname l4">Level 4, Terdokumentasi</span>; Ya → <span class="lname l5">Level 5, Teruji</span></li>
+        </ol>
+        <p style="margin:10px 0 0">Untuk dibandingkan dengan indeks lain, nilai dapat dikonversi ke skala 0–100: (rata-rata level − 1) ÷ 4 × 100.</p>
       </div>
       <div class="box">
         <h3>Alat pendukung</h3>
@@ -560,23 +589,33 @@ const PKS = [["PN Pulau Punjung",108],["PN Purworejo",22],["PN Magelang",11],["P
 const IPH = [{y:2021,v:.60,s:"iph22"},{y:2022,v:.66,s:"iph23"},{y:2023,v:.68,s:"iph23"},{y:2024,v:.68,s:"iph24"}];
 const PILAR = [["Kelembagaan hukum",.72,.67],["Informasi dan komunikasi",.61,.67],["Materi hukum",.60,.61],["Penegakan hukum",null,.64]];
 
+const LEVELS = [
+  {n:1,name:"Belum tersedia",d:"Belum ada angka resmi yang dipublikasikan untuk menjawab pertanyaan ini."},
+  {n:2,name:"Terbatas",d:"Angka resmi pernah disebut, tetapi hanya sekali, tidak berkala, atau baru menjawab sebagian pertanyaan."},
+  {n:3,name:"Berkala",d:"Angka terbit berkala (bulanan, triwulanan, atau tahunan) dan menjawab pertanyaan secara utuh."},
+  {n:4,name:"Terdokumentasi",d:"Ditambah definisi, sumber, dan periode rujukan yang jelas; angkanya sama di semua kanal resmi; revisi ditandai."},
+  {n:5,name:"Teruji",d:"Ditambah rincian menurut wilayah atau kelompok, dan ukuran mutu: galat baku untuk survei atau status rekonsiliasi untuk data administratif."}
+];
+const CHECKS = ["Ada angka resmi publik","Berkala dan menjawab utuh","Terdokumentasi dan konsisten","Terinci dan ada ukuran mutu"];
 const Q = [
-  {id:1,b:"Pemasyarakatan",q:"Berapa penghuni dan kapasitas lapas serta rutan bulan ini?",s:.5,e:"Angka resmi ada (271.468 penghuni, kapasitas 146.860, April 2026), tetapi tidak terbit berjadwal, dan kanal resmi lain pada bulan yang sama menyebut kapasitas 146.260.",src:[["imipas2026"],["pas2026"]]},
-  {id:2,b:"Pemasyarakatan",q:"Berapa tahanan yang saat ini mengalami overstay?",s:.5,e:"Kemenko menyebut 4.987 tahanan teridentifikasi overstay, tetapi masih data sementara, definisinya belum disepakati antarlembaga, dan pemutakhiran bulanan hanya beredar antarinstansi.",src:[["overstay"]]},
-  {id:3,b:"Hukum",q:"Berapa putusan pidana kerja sosial sejak KUHP berlaku?",s:.5,e:"MA membuka 218 putusan dari 35 pengadilan negeri (Januari hingga 26 Mei 2026) dalam satu rilis berita, belum sebagai seri berkala.",src:[["ma"]]},
-  {id:4,b:"Hukum",q:"Berapa pidana kerja sosial yang tuntas, dan berapa yang gagal dijalankan?",s:0,e:"Belum ada angka publik. Pengawasan oleh jaksa dan pembimbingan oleh pembimbing kemasyarakatan belum terbit sebagai statistik.",src:[["kuhp","Pasal 85"]]},
-  {id:5,b:"Hukum",q:"Apakah pidana kerja sosial menggantikan penjara, bukan denda?",s:0,e:"Belum ada analisis publik. KUHP membuka dua jalur (pengganti penjara paling lama enam bulan atau denda kategori II), sehingga risiko perluasan jaring pemidanaan perlu diuji.",src:[["kuhp","Pasal 85"]]},
-  {id:6,b:"Hukum",q:"Berapa skor IPH terbaru dan skor tiap pilarnya?",s:.5,e:"Laporan akhir IPH 2024 mencatat 0,68 dan dibahas pada April 2026; satu rilis lain menyebut 0,69. Belum ada kalender rilis dan catatan revisi.",src:[["iph24"],["iph068"],["iph069"]]},
-  {id:7,b:"Lintas bidang",q:"Seberapa percaya publik pada lembaga hukum, dipilah per bidang koordinasi?",s:.5,e:"Indikator kepercayaan publik sudah ada di pilar budaya hukum IPH, tetapi tidak dipilah per bidang dan diukur dengan jeda satu tahun (T+1).",src:[["iphMeta"],["datagoid"]]},
-  {id:8,b:"Lintas bidang",q:"Berapa persen korban kejahatan yang melapor ke polisi?",s:1,e:"BPS menerbitkannya setiap tahun lewat Susenas, lengkap dengan definisi dan galat baku: 20,28% pada 2024 (RSE 4,23%).",src:[["sk2425","Lampiran 49, hlm. PDF 201"],["sk2425","Lampiran 60, hlm. PDF 219"]]}
+  {id:1,b:"Pemasyarakatan",q:"Berapa penghuni dan kapasitas lapas serta rutan bulan ini?",c:[1,0,0,0],e:"Angka resmi pernah disebut (271.468 penghuni, kapasitas 146.860, April 2026), tetapi penyusun tidak menemukan seri berkala untuk publik, dan kanal resmi lain pada bulan yang sama menyebut kapasitas 146.260.",src:[["imipas2026"],["pas2026"]]},
+  {id:2,b:"Pemasyarakatan",q:"Berapa tahanan yang saat ini mengalami overstay?",c:[1,0,0,0],e:"Angka 4.987 disebut sekali dalam rilis Kemenko, masih berstatus data sementara, dan definisi overstay belum disepakati antarlembaga. Pemutakhiran bulanan hanya beredar antarinstansi.",src:[["overstay"]]},
+  {id:3,b:"Hukum",q:"Berapa putusan pidana kerja sosial sejak KUHP berlaku?",c:[1,0,0,0],e:"MA membuka angka 218 putusan dari 35 pengadilan negeri (Januari hingga 26 Mei 2026) dalam satu rilis berita, belum sebagai seri berkala.",src:[["ma"]]},
+  {id:4,b:"Hukum",q:"Berapa pidana kerja sosial yang tuntas, dan berapa yang gagal dijalankan?",c:[0,0,0,0],e:"Belum ada angka publik. Pengawasan oleh jaksa dan pembimbingan oleh pembimbing kemasyarakatan belum terbit sebagai statistik.",src:[["kuhp","Pasal 85"]]},
+  {id:5,b:"Hukum",q:"Apakah pidana kerja sosial menggantikan penjara, bukan denda?",c:[0,0,0,0],e:"Belum ada analisis publik. KUHP membuka dua jalur (pengganti penjara paling lama enam bulan atau denda kategori II), sehingga risiko perluasan jaring pemidanaan perlu diuji.",src:[["kuhp","Pasal 85"]]},
+  {id:6,b:"Hukum",q:"Berapa skor IPH terbaru dan skor tiap pilarnya?",c:[1,1,0,0],e:"IPH terbit setiap tahun (2021–2024) dan metadatanya tersedia, tetapi angka 2024 berbeda antarkanal: laporan akhir mencatat 0,68, satu rilis lain menyebut 0,69. Syarat level 4 belum terpenuhi.",src:[["iph24"],["iph068"],["iph069"],["iphMeta"]]},
+  {id:7,b:"Lintas bidang",q:"Seberapa percaya publik pada lembaga hukum, dipilah per bidang koordinasi?",c:[1,0,0,0],e:"Indikator kepercayaan publik sudah ada di pilar budaya hukum IPH, tetapi tidak dipilah per bidang koordinasi, sehingga baru menjawab sebagian pertanyaan.",src:[["iphMeta"],["datagoid"]]},
+  {id:8,b:"Lintas bidang",q:"Berapa persen korban kejahatan yang melapor ke polisi?",c:[1,1,1,1],e:"BPS menerbitkannya setiap tahun lewat Susenas dengan konsep dan definisi yang jelas, angka yang konsisten antaredisi, rincian per provinsi, serta galat baku: 20,28% pada 2024 (RSE 4,23%).",src:[["sk2425","Lampiran 49, hlm. PDF 201"],["sk2425","Lampiran 60, hlm. PDF 219"]]}
 ];
 const ACTS = [
-  {id:"a1",t:"Rilis bulanan hunian dan kapasitas lapas beserta metadata",p:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan, bersama Ditjenpas",up:{1:1}},
-  {id:"a2",t:"Bakukan definisi overstay dan terbitkan agregat bulanan",p:"Tim Terpadu Penanganan Overstay",up:{2:1}},
-  {id:"a3",t:"Rilis triwulanan pidana kerja sosial: putusan, pelaksanaan, penyelesaian",p:"Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, dan Ditjenpas",up:{3:1,4:1}},
-  {id:"a4",t:"Analisis runtun waktu pola pemidanaan sebelum dan sesudah KUHP",p:"Deputi Bidang Koordinasi Hukum, bersama mitra akademik dan statistik",up:{5:1}},
-  {id:"a5",t:"Kalender rilis dan catatan revisi IPH; pilah indikator kepercayaan",p:"Asdep Koordinasi Budaya, Informasi, dan Komunikasi Hukum, bersama BPHN",up:{6:1,7:1}}
+  {id:"a1",t:"Rilis bulanan hunian dan kapasitas lapas per kanwil, dengan metadata dan catatan revisi",p:"Deputi Bidang Koordinasi Keimigrasian dan Pemasyarakatan, bersama Ditjenpas",set:{1:[1,1,1,1]}},
+  {id:"a2",t:"Bakukan definisi overstay; rilis agregat bulanan per kanwil dengan status rekonsiliasi",p:"Tim Terpadu Penanganan Overstay",set:{2:[1,1,1,1]}},
+  {id:"a3",t:"Rilis triwulanan pidana kerja sosial per provinsi: putusan, pelaksanaan, penyelesaian",p:"Deputi Bidang Koordinasi Hukum, bersama MA, Kejaksaan, dan Ditjenpas",set:{3:[1,1,1,1],4:[1,1,1,0]}},
+  {id:"a4",t:"Analisis tahunan runtun waktu pola pemidanaan sebelum dan sesudah KUHP",p:"Deputi Bidang Koordinasi Hukum, bersama mitra akademik dan statistik",set:{5:[1,1,1,0]}},
+  {id:"a5",t:"Kalender rilis dan catatan revisi IPH; pilah indikator kepercayaan per bidang dengan galat baku",p:"Asdep Koordinasi Budaya, Informasi, dan Komunikasi Hukum, bersama BPHN",set:{6:[1,1,1,0],7:[1,1,1,1]}}
 ];
+const levelOf = c => { let l=1; for(const x of c){ if(x) l++; else break; } return l; };
+
 
 /* ---------- Utilitas ---------- */
 const fmt2 = v => v.toFixed(2).replace(".", ",");
@@ -595,16 +634,17 @@ function gauge(el,id){
     <path d="M20 128 A100 100 0 0 1 220 128" fill="none" stroke="var(--line)" stroke-width="18" stroke-linecap="round"/>
     <path id="${id}" d="M20 128 A100 100 0 0 1 220 128" fill="none" stroke="var(--gold)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 ${L}" style="transition:stroke-dasharray .6s ease"/>
     <text id="${id}v" x="120" y="118" text-anchor="middle" font-size="40" font-weight="800" fill="var(--ink)" font-family="inherit">0,00</text>
-    <text x="20" y="144" font-size="11" fill="var(--ink2)" text-anchor="middle" font-family="inherit">0</text>
-    <text x="220" y="144" font-size="11" fill="var(--ink2)" text-anchor="middle" font-family="inherit">1</text></svg>`;
+    <text x="20" y="144" font-size="11" fill="var(--ink2)" text-anchor="middle" font-family="inherit">1</text>
+    <text x="220" y="144" font-size="11" fill="var(--ink2)" text-anchor="middle" font-family="inherit">5</text></svg>`;
 }
 function setGauge(id,v){
   const L = Math.PI*100, p=document.getElementById(id), t=document.getElementById(id+"v");
-  if(p) p.setAttribute("stroke-dasharray", `${L*v} ${L}`);
+  const f=Math.max(0,Math.min(1,(v-1)/4)); if(p) p.setAttribute("stroke-dasharray", `${L*f} ${L}`);
   if(t) t.textContent = fmt2(v);
 }
-const baseScores = () => Object.fromEntries(Q.map(q=>[q.id,q.s]));
-const ipt = scores => Object.values(scores).reduce((a,b)=>a+b,0)/Q.length;
+const baseLevels = () => Object.fromEntries(Q.map(q=>[q.id,levelOf(q.c)]));
+const ipt = lv => Object.values(lv).reduce((a,b)=>a+b,0)/Q.length;
+const levelName = n => LEVELS[n-1].name;
 
 /* ---------- Hero ---------- */
 function buildFacts(){
@@ -615,20 +655,24 @@ function buildFacts(){
 }
 
 /* ---------- Audit pertanyaan ---------- */
+function ladder(n){ return `<div class="ladder" aria-hidden="true">${[1,2,3,4,5].map(i=>`<span class="${i<=n?"on l"+n:""}"></span>`).join("")}</div>`; }
+function buildLevelGuide(){
+  document.getElementById("levels").innerHTML = LEVELS.map(l=>`<div class="lvl l${l.n}"><div class="lvl-top"><b class="num">${l.n}</b><span>${l.name}</span></div>${ladder(l.n)}<p>${l.d}</p></div>`).join("");
+}
 function buildQuestions(){
   const el=document.getElementById("qtable");
-  let html=`<div class="qrow qhead"><span>Bidang</span><span>Pertanyaan, bukti, dan sumber</span><span style="text-align:right">Skor</span></div>`;
+  let html=`<div class="qrow qhead"><span>Bidang</span><span>Pertanyaan, pemeriksaan, bukti, dan sumber</span><span style="text-align:right">Level</span></div>`;
   Q.forEach(q=>{
+    const n=levelOf(q.c);
+    const checks=CHECKS.map((t,i)=>`<span class="ck ${q.c[i]?"ok":"no"}">${q.c[i]?"✓":"✗"} ${t}</span>`).join("");
     html+=`<div class="qrow"><span class="tag">${q.b}</span>
-      <div><div class="qtext">${q.id}. ${q.q}</div><p class="qev">${q.e}</p><div>${q.src.map(([k,l])=>sl(k,l)).join("")}</div></div>
-      <div class="score"><span class="chip ${scoreClass(q.s)}">${scoreLabel(q.s)}</span><span class="v num">${fmt2(q.s)}</span></div></div>`;
+      <div><div class="qtext">${q.id}. ${q.q}</div><div class="checks">${checks}</div><p class="qev">${q.e}</p><div>${q.src.map(([k,l])=>sl(k,l)).join("")}</div></div>
+      <div class="score">${ladder(n)}<span class="v num">Level ${n}</span><span class="lname l${n}">${levelName(n)}</span></div></div>`;
   });
-  const sum=Q.reduce((a,q)=>a+q.s,0);
-  html+=`<div class="qfoot"><span>Indeks Pertanyaan Terjawab = ${String(sum).replace(".",",")} ÷ ${Q.length}</span><b class="num">${fmt2(ipt(baseScores()))}</b></div>`;
+  const lv=baseLevels(), sum=Object.values(lv).reduce((a,b)=>a+b,0), v=ipt(lv);
+  html+=`<div class="qfoot"><span>Indeks = rata-rata level = ${sum} ÷ ${Q.length}. Setara ${dec((v-1)/4*100,0)} pada skala 0–100.</span><b class="num">${dec(v,2)} dari 5</b></div>`;
   el.innerHTML=html;
 }
-
-/* ---------- Simulator ---------- */
 function buildSim(){
   document.getElementById("acts").innerHTML = ACTS.map(a=>`<label class="act"><input type="checkbox" id="${a.id}"><span class="switch" aria-hidden="true"></span>
     <span><h3>${a.t}</h3><p>${a.p}</p></span></label>`).join("");
@@ -636,13 +680,14 @@ function buildSim(){
   updateSim();
 }
 function updateSim(){
-  const base=baseScores(), cur={...base};
-  ACTS.forEach(a=>{ if(document.getElementById(a.id).checked){ Object.entries(a.up).forEach(([k,v])=>{ if(cur[k]<v) cur[k]=v; }); } });
+  const base=baseLevels(), curC=Object.fromEntries(Q.map(q=>[q.id,[...q.c]]));
+  ACTS.forEach(a=>{ if(document.getElementById(a.id).checked){ Object.entries(a.set).forEach(([k,c])=>{ curC[k]=curC[k].map((x,i)=>x||c[i]); }); } });
+  const cur=Object.fromEntries(Object.entries(curC).map(([k,c])=>[k,levelOf(c)]));
   const changed=Q.filter(q=>cur[q.id]!==base[q.id]);
   const v0=ipt(base), v=ipt(cur);
   setGauge("gSim",v);
-  document.getElementById("simDelta").textContent = changed.length ? `Naik dari ${fmt2(v0)} menjadi ${fmt2(v)}` : `Posisi awal ${fmt2(v0)}. Nyalakan aksi untuk melihat perubahan.`;
-  document.getElementById("simChanges").innerHTML = changed.map(q=>`<li><span class="dot" style="background:var(--ok)"></span><span>Pertanyaan ${q.id} menjadi terjawab penuh</span></li>`).join("");
+  document.getElementById("simDelta").textContent = changed.length ? `Rata-rata level naik dari ${dec(v0,2)} menjadi ${dec(v,2)} (dari 5)` : `Posisi awal ${dec(v0,2)} dari 5. Nyalakan aksi untuk melihat perubahan.`;
+  document.getElementById("simChanges").innerHTML = changed.map(q=>`<li><span class="dot" style="background:var(--ok)"></span><span>Pertanyaan ${q.id}: Level ${base[q.id]} (${levelName(base[q.id])}) menjadi Level ${cur[q.id]} (${levelName(cur[q.id])})</span></li>`).join("");
 }
 
 /* ---------- Grafik ---------- */
@@ -761,10 +806,10 @@ function buildSources(){
 
 gauge(document.getElementById("heroGauge"),"gHero");
 gauge(document.getElementById("simGauge"),"gSim");
-buildFacts(); buildQuestions(); buildSim();
+buildFacts(); buildLevelGuide(); buildQuestions(); buildSim();
 chLapor(); chRegSur(); chHuni(); chPks(); chIph();
 buildDataTable(); buildSources();
-requestAnimationFrame(()=>setGauge("gHero", ipt(baseScores())));
+requestAnimationFrame(()=>setGauge("gHero", ipt(baseLevels())));
 
 </script>
 </body>
